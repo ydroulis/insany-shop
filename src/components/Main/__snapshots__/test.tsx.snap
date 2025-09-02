@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<Main/> should render the heading 1`] = `
+<main
+  class="sc-bRKDuR cQIcRK"
+>
+  <h1
+    class="sc-hvigdm ebRyxB"
+  >
+    teste
+  </h1>
+  <h2
+    class="sc-fhHczv eEWtjj"
+  >
+    Testando
+  </h2>
+</main>
+`;
