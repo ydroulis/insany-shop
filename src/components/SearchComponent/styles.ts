@@ -25,6 +25,7 @@ export const SearchInput = styled.input`
 
     &::placeholder {
         color: #737380;
+        font-family: 'Inter', sans-serif;
     }
 `
 
