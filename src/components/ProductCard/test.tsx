@@ -36,7 +36,7 @@ describe("<ProductCard />", () => {
         expect(image).toBeInTheDocument();
         expect(image).toHaveAttribute("src", expect.stringContaining("fake-image.png"));
 
-        expect(screen.getByText(mockProduct.category)).toBeInTheDocument();
+        expect(screen.getByText(mockProduct.category as string)).toBeInTheDocument();
         expect(screen.getByRole("heading", { name: mockProduct.name })).toBeInTheDocument();
         expect(screen.getByText(mockProduct.description)).toBeInTheDocument();
 
