@@ -6,7 +6,7 @@ export type Product = {
     description: string,
     price: number,
     image: string,
-    category: string,
+    category: string | undefined,
     stock: number,
     rating: number,
     brand?: string

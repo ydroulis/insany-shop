@@ -16,6 +16,17 @@ export const Wrapper = styled.header`
   font-family: 'Inter', sans-serif;
 `
 
+export const Container = styled.div`
+  width: 100%;
+  max-width: 1120px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+`
+
 export const Logo = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;

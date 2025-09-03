@@ -26,6 +26,9 @@ const ProductCard: React.FC<Product> = ({
                     src={image}
                     width={200}
                     height={200}
+                    placeholder='blur'
+                    blurDataURL="..."
+                    loading="lazy"
                     alt={`Imagem do produto ${name}`}
                 />
                 <S.Details>
