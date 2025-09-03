@@ -22,8 +22,8 @@ export default function Home() {
   return (
     <div style={{ padding: "0rem 10rem", fontFamily: "Inter, sans-serif" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "2rem" }}>
-        <Selector type="category" options={optionsCategory} setValue={setValueCategory} value={valueCategory} />
-        <Selector type="sort" options={optionsSort} setValue={setValueSort} value={valueSort} />
+        <Selector type="category" options={optionsCategory} setValue={setValueCategory} value={valueCategory} label="Selecione a categoria" />
+        <Selector type="sort" options={optionsSort} setValue={setValueSort} value={valueSort} label="Selecione a organização dos produtos" />
       </div>
     </div>
   );

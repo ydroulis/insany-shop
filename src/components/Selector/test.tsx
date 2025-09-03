@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Selector from "./index";
-import { Options } from "./Options";
+import Selector from "./";
+import { Options } from "../../types/SelectorOptions";
 
 describe("<Selector />", () => {
     const mockOptions: Options[] = [
@@ -67,6 +67,49 @@ describe("<Selector />", () => {
         fireEvent.click(option);
 
         expect(setValue).toHaveBeenCalledWith("Option 2");
+    });
+
+    it("should select value with Space key", () => {
+        const setValue = jest.fn();
+        render(
+            <Selector
+                options={mockOptions}
+                value=""
+                setValue={setValue}
+                label="Selecione uma opção"
+                type="sort"
+            />
+        );
+
+        const button = screen.getByRole("button", { name: /Selecione uma opção/i });
+        fireEvent.click(button);
+
+        const option = screen.getByRole("option", { name: "Option 2" });
+        fireEvent.keyDown(option, { key: " ", code: "Space" });
+
+        expect(setValue).toHaveBeenCalledWith("Option 2");
+    });
+
+    it("should mark the selected option with aria-selected", () => {
+        const setValue = jest.fn();
+        render(
+            <Selector
+                options={mockOptions}
+                value="Option 1"
+                setValue={setValue}
+                label="Selecione uma opção"
+                type="category"
+            />
+        );
+
+        const button = screen.getByRole("button", { name: /Selecione uma opção/i });
+        fireEvent.click(button);
+
+        const option1 = screen.getByRole("option", { name: "Option 1" });
+        const option2 = screen.getByRole("option", { name: "Option 2" });
+
+        expect(option1).toHaveAttribute("aria-selected", "true");
+        expect(option2).toHaveAttribute("aria-selected", "false");
     });
 
     it("sohuld select value with enter", () => {
