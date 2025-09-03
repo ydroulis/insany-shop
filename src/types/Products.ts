@@ -1,7 +1,6 @@
 export type Products = Product[]
 
 export type Product = {
-
     id: number,
     name: string,
     description: string,
@@ -10,6 +9,6 @@ export type Product = {
     category: string,
     stock: number,
     rating: number,
-    brand: string
+    brand?: string
 
 }
