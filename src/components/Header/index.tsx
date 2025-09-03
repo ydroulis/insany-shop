@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     return (
         <S.Wrapper role="banner">
             <S.Logo>
-                <Link href="/" aria-label='Ir para a página inicial'>Insany Shop</Link>
+                <Link href="/" aria-label='Ir para a página inicial'>InsanyShop</Link>
             </S.Logo>
 
             <S.Actions role="navigation" aria-label='Acões de navegação'>

@@ -11,7 +11,7 @@ describe('<Header />', () => {
 
         const logoLink = screen.getByRole('link', { name: /ir para a página inicial/i });
         expect(logoLink).toBeInTheDocument();
-        expect(logoLink).toHaveTextContent('Insany Shop');
+        expect(logoLink).toHaveTextContent('InsanyShop');
 
         const nav = screen.getByRole('navigation', { name: /acões de navegação/i });
         expect(nav).toBeInTheDocument();
