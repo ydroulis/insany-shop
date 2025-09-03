@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import { FaChevronDown } from "react-icons/fa";
 
 import * as S from './styles';
-import { Options } from './Options';
+import { Options } from '../../types/SelectorOptions';
 
 interface SelectorProps {
     options: Options[]

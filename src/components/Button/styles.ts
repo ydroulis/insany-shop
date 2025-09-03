@@ -1,0 +1,26 @@
+'use client'
+import styled from 'styled-components'
+
+export const Container = styled.button<{ $buttonType: string }>`
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: ${({ $buttonType }) => ($buttonType === 'default' ? '#000000' : '#1B9847')};
+    cursor: pointer;
+    width: 100%;
+    height: ${({ $buttonType }) => ($buttonType === 'default' ? '40px' : '44px')};
+
+    color: ${({ $buttonType }) => ($buttonType === 'default' ? '#fff' : '#f5f5fa')};
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: ${({ $buttonType }) => ($buttonType === 'default' ? 'none' : 'uppercase')};
+
+    &:hover {
+        opacity: 0.8;
+    }
+`

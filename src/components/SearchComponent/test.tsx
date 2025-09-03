@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import SearchComponent from './index';
+import SearchComponent from './';
 
 describe('<SearchComponent />', () => {
 
