@@ -18,6 +18,7 @@ describe("<Selector />", () => {
                 setValue={setValue}
                 label="Selecione uma opção"
                 type="category"
+                id="category"
             />
         );
 
@@ -34,6 +35,7 @@ describe("<Selector />", () => {
                 setValue={setValue}
                 label="Selecione uma opção"
                 type="category"
+                id="category"
             />
         );
 
@@ -57,6 +59,7 @@ describe("<Selector />", () => {
                 setValue={setValue}
                 label="Selecione uma opção"
                 type="category"
+                id="category"
             />
         );
 
@@ -78,6 +81,7 @@ describe("<Selector />", () => {
                 setValue={setValue}
                 label="Selecione uma opção"
                 type="sort"
+                id="sort"
             />
         );
 
@@ -99,6 +103,7 @@ describe("<Selector />", () => {
                 setValue={setValue}
                 label="Selecione uma opção"
                 type="category"
+                id="category"
             />
         );
 
@@ -121,6 +126,7 @@ describe("<Selector />", () => {
                 setValue={setValue}
                 label="Selecione uma opção"
                 type="sort"
+                id="sort"
             />
         );
 

@@ -9,11 +9,12 @@ interface SelectorProps {
     options: Options[]
     setValue: React.Dispatch<React.SetStateAction<string>>
     value: string
-    label?: string
+    label: string
     type: 'category' | 'sort'
+    id: string
 }
 
-const Selector: React.FC<SelectorProps> = ({ options, setValue, value, label, type }) => {
+const Selector: React.FC<SelectorProps> = ({ options, setValue, value, label, type, id }) => {
     const [isOpen, setIsOpen] = useState(false);
     const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -29,7 +30,7 @@ const Selector: React.FC<SelectorProps> = ({ options, setValue, value, label, ty
                 $selectType={type}
                 as="button"
                 ref={buttonRef}
-                id="custom-selector"
+                id={`${id}-selector`}
                 aria-haspopup="listbox"
                 aria-expanded={isOpen}
                 aria-controls="selector-menu"
@@ -40,7 +41,7 @@ const Selector: React.FC<SelectorProps> = ({ options, setValue, value, label, ty
                 <FaChevronDown className='icon' size={16} color='#737380' aria-hidden="true" />
             </S.Selector>
             <S.SelectorMenu
-                id="selector-menu"
+                id={`${id}-menu`}
                 role="listbox"
                 aria-labelledby="custom-selector"
                 $isOpen={isOpen}
