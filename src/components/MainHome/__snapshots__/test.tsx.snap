@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`<Main /> should match snapshot 1`] = `
+exports[`<MainHome /> should match snapshot 1`] = `
 <div>
   <main
     aria-label="Catálogo de produtos"

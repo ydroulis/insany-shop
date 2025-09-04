@@ -162,7 +162,7 @@ const productList: Products = products.map(product => ({
     category: categories.find(category => category.id === product.category)?.name
 }))
 
-const Main: React.FC = () => {
+const MainHome: React.FC = () => {
     return (
         <S.Container
             as="main"
@@ -176,4 +176,4 @@ const Main: React.FC = () => {
     );
 }
 
-export default Main;
+export default MainHome;
