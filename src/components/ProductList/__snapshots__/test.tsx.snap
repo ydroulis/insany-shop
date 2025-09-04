@@ -1,33 +1,105 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`<ProductList /> should match snapshot 1`] = `
+exports[`<ProductList /> should match snapshot with pageId 1`] = `
 <div>
   <section
+    aria-describedby="product-list-description"
     aria-labelledby="product-list-title"
-    class="sc-bRKDuR hmMMke"
+    class="sc-bRKDuR bdSZYh"
     role="region"
   >
     <h2
-      class="sc-hvigdm czspTs"
+      class="sc-hvigdm dpWcbF"
+      id="product-list-title"
+    >
+      Eletrônicos
+    </h2>
+    <p
+      class="sc-fhHczv hiFLoZ"
+      id="product-list-description"
+    >
+      Smartphones, laptops, consoles e mais
+    </p>
+    <ul
+      class="sc-ggWZvA eYZMRa"
+      role="list"
+    >
+      <li
+        role="listitem"
+      >
+        <div
+          data-testid="mock-product-card"
+        >
+          <h3>
+            Produto A
+          </h3>
+          <p>
+            Descrição do Produto A
+          </p>
+        </div>
+      </li>
+      <li
+        role="listitem"
+      >
+        <div
+          data-testid="mock-product-card"
+        >
+          <h3>
+            Produto B
+          </h3>
+          <p>
+            Descrição do Produto B
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+`;
+
+exports[`<ProductList /> should match snapshot without pageId 1`] = `
+<div>
+  <section
+    aria-labelledby="product-list-title"
+    class="sc-bRKDuR bdSZYh"
+    role="region"
+  >
+    <h2
+      class="sc-hvigdm dpWcbF"
       id="product-list-title"
     >
       Todos os Produtos
     </h2>
     <ul
-      class="sc-fhHczv cXtkHB"
+      class="sc-ggWZvA eYZMRa"
+      role="list"
     >
-      <li>
+      <li
+        role="listitem"
+      >
         <div
           data-testid="mock-product-card"
         >
-          Produto A
+          <h3>
+            Produto A
+          </h3>
+          <p>
+            Descrição do Produto A
+          </p>
         </div>
       </li>
-      <li>
+      <li
+        role="listitem"
+      >
         <div
           data-testid="mock-product-card"
         >
-          Produto B
+          <h3>
+            Produto B
+          </h3>
+          <p>
+            Descrição do Produto B
+          </p>
         </div>
       </li>
     </ul>
