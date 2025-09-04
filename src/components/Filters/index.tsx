@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface FiltersProps {
-    pageId: string
+    pageId?: string
 }
 
 const optionsCategory = [
