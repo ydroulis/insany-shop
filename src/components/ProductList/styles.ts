@@ -6,14 +6,25 @@ export const Container = styled.section`
     max-width: 1120px;
 
     margin: 48px auto 51px auto;
+
+    color: #000000;
+
+    position: relative;
 `
 
 export const Title = styled.h2`
     font-size: 2.5rem;
     font-weight: 700;
-    color: #000000;
 
     margin-bottom: 47px;
+`
+
+export const Description = styled.p`
+    font-size: 1.25rem;
+
+    position: absolute;
+    top: 10px;
+    right: 0;
 `
 
 export const List = styled.ul`

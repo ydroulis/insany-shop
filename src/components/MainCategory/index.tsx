@@ -1,10 +1,13 @@
 import React from 'react';
 
 import * as S from './styles';
-import ProductList from '../ProductList';
 import { Products } from '@/types/Products';
 import Filters from '../Filters';
-import CategoriesList from '../CategoryList';
+import ProductList from '../ProductList';
+
+interface MainCategoryProps {
+    id: string;
+}
 
 const categories = [
     {
@@ -88,72 +91,6 @@ const products = [
         stock: 8,
         rating: 4.6,
         brand: "Sony"
-    },
-    {
-        id: 5,
-        name: "Camiseta Básica Premium",
-        description: "Camiseta 100% algodão com corte moderno e acabamento premium. Disponível em várias cores, ideal para o dia a dia.",
-        price: 89.99,
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
-        category: "roupas",
-        stock: 50,
-        rating: 4.4,
-        brand: "BasicWear"
-    },
-    {
-        id: 6,
-        name: "Jeans Skinny Masculino",
-        description: "Calça jeans com elastano para maior conforto e mobilidade. Corte skinny moderno com lavagem escura premium.",
-        price: 199.99,
-        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop",
-        category: "roupas",
-        stock: 30,
-        rating: 4.3,
-        brand: "DenimCo"
-    },
-    {
-        id: 7,
-        name: "Vestido Floral Feminino",
-        description: "Vestido midi com estampa floral delicada, tecido fluido e corte evasê. Perfeito para ocasiões especiais e uso casual.",
-        price: 159.99,
-        image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop",
-        category: "roupas",
-        stock: 22,
-        rating: 4.5,
-        brand: "FloralStyle"
-    },
-    {
-        id: 8,
-        name: "Tênis Esportivo Running",
-        description: "Tênis para corrida com tecnologia de amortecimento avançado, cabedal respirável e solado antiderrapante.",
-        price: 299.99,
-        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop",
-        category: "roupas",
-        stock: 35,
-        rating: 4.6,
-        brand: "RunTech"
-    },
-    {
-        id: 9,
-        name: "Sofá 3 Lugares Retrátil",
-        description: "Sofá confortável com assento retrátil e reclinável, revestimento em tecido suede e estrutura de madeira maciça.",
-        price: 1899.99,
-        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop",
-        category: "casa",
-        stock: 6,
-        rating: 4.7,
-        brand: "ComfortHome"
-    },
-    {
-        id: 10,
-        name: "Mesa de Jantar 6 Lugares",
-        description: "Mesa de jantar em madeira MDF com acabamento laminado, design moderno e capacidade para 6 pessoas.",
-        price: 899.99,
-        image: "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=400&fit=crop",
-        category: "casa",
-        stock: 10,
-        rating: 4.4,
-        brand: "ModernLiving"
     }
 ]
 
@@ -162,18 +99,17 @@ const productList: Products = products.map(product => ({
     category: categories.find(category => category.id === product.category)?.name
 }))
 
-const Main: React.FC = () => {
+const MainCategory: React.FC<MainCategoryProps> = ({ id }) => {
     return (
         <S.Container
             as="main"
             role="main"
-            aria-label="Catálogo de produtos"
+            aria-label={`Catálogo de produtos ${id}`}
         >
             <Filters />
-            <ProductList products={productList} />
-            <CategoriesList categories={categories} />
+            <ProductList products={productList} pageId={id} />
         </S.Container>
     );
 }
 
-export default Main;
+export default MainCategory;

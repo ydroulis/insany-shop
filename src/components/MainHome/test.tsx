@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, within } from "@testing-library/react";
-import Main from "./";
+import MainHome from ".";
 import { Product } from "@/types/Products";
 
 jest.mock("../Filters", () => {
@@ -33,9 +33,9 @@ jest.mock("../ProductList", () => {
     return ProductList;
 });
 
-describe("<Main />", () => {
+describe("<MainHome />", () => {
     beforeEach(() => {
-        render(<Main />);
+        render(<MainHome />);
     });
 
     it("should render the main landmark with correct accessibility attributes", () => {
@@ -89,7 +89,7 @@ describe("<Main />", () => {
         });
     });
     it("should match snapshot", () => {
-        const { container } = render(<Main />);
+        const { container } = render(<MainHome />);
         expect(container).toMatchSnapshot();
     });
 });
