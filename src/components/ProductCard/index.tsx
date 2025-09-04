@@ -17,9 +17,10 @@ const ProductCard: React.FC<Product> = ({
     rating
 }) => {
     return (
-        <S.CardArticle>
+        <S.CardArticle
+            href="#"
+        >
             <S.CardLink
-                href="#"
                 aria-label={`Ver detalhes do produto ${name}`}
             >
                 <S.CardImage

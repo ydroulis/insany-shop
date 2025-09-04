@@ -138,4 +138,31 @@ describe("<Selector />", () => {
 
         expect(setValue).toHaveBeenCalledWith("Option 1");
     });
+
+    it("should select value with click", () => {
+        const setValue = jest.fn();
+        render(
+            <Selector
+                options={mockOptions}
+                value=""
+                setValue={setValue}
+                label="Selecione uma opção"
+                type="sort"
+                id="sort"
+            />
+        );
+
+        const button = screen.getByRole("button", { name: /Selecione uma opção/i });
+        fireEvent.click(button);
+
+        const option = screen.getByRole("option", { name: "Option 1" });
+        fireEvent.click(option);
+
+        expect(setValue).toHaveBeenCalledWith("Option 1");
+    });
+
+    it("should match snapshot", () => {
+        const { container } = render(<Selector options={mockOptions} value="" setValue={jest.fn()} label="Selecione uma opção" type="category" id="category" />);
+        expect(container).toMatchSnapshot();
+    });
 });

@@ -62,4 +62,8 @@ describe('<Filters />', () => {
         expect(screen.getByLabelText(/category-icon/i)).toBeInTheDocument();
         expect(screen.getByLabelText(/sort-icon/i)).toBeInTheDocument();
     });
+    it("should match snapshot", () => {
+        const { container } = render(<Filters />);
+        expect(container).toMatchSnapshot();
+    });
 });

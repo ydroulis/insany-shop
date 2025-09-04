@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<ProductList /> should match snapshot 1`] = `
+<div>
+  <section
+    aria-labelledby="product-list-title"
+    class="sc-bRKDuR hmMMke"
+    role="region"
+  >
+    <h2
+      class="sc-hvigdm czspTs"
+      id="product-list-title"
+    >
+      Todos os Produtos
+    </h2>
+    <ul
+      class="sc-fhHczv cXtkHB"
+    >
+      <li>
+        <div
+          data-testid="mock-product-card"
+        >
+          Produto A
+        </div>
+      </li>
+      <li>
+        <div
+          data-testid="mock-product-card"
+        >
+          Produto B
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+`;

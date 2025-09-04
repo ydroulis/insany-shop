@@ -74,4 +74,9 @@ describe("<ProductList />", () => {
         expect(fallback).toHaveAttribute("aria-live", "polite");
         expect(fallback).toHaveTextContent(/nenhum produto disponível/i);
     });
+
+    it("should match snapshot", () => {
+        const { container } = render(<ProductList products={mockProducts} />);
+        expect(container).toMatchSnapshot();
+    });
 });

@@ -23,4 +23,11 @@ export const Container = styled.button<{ $buttonType: string }>`
     &:hover {
         opacity: 0.8;
     }
+
+    &:focus-visible {
+        outline: 3px solid #2563eb;
+        outline-offset: 4px;
+        border-radius: 4px;
+        opacity: 0.8;
+    }
 `
