@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<Filters /> should match snapshot 1`] = `
+<div>
+  <section
+    class="sc-bRKDuR eGTcNz"
+    data-testid="filters-section"
+  >
+    <div>
+      <label
+        for="category"
+      >
+        Selecione a categoria
+      </label>
+      <select
+        aria-label="Selecione a categoria"
+        id="category"
+      >
+        <option
+          value="eletronics"
+        >
+          Eletrônicos
+        </option>
+        <option
+          value="clothing"
+        >
+          Roupas e Calçados
+        </option>
+        <option
+          value="decoration"
+        >
+          Casa e Decoração
+        </option>
+        <option
+          value="books"
+        >
+          Livros
+        </option>
+        <option
+          value="sport"
+        >
+          Esporte e Lazer
+        </option>
+      </select>
+      <svg
+        aria-label="category-icon"
+        role="img"
+      >
+        <circle
+          cx="10"
+          cy="10"
+          r="10"
+        />
+      </svg>
+    </div>
+    <div>
+      <label
+        for="sort"
+      >
+        Selecione a organização dos produtos
+      </label>
+      <select
+        aria-label="Selecione a organização dos produtos"
+        id="sort"
+      >
+        <option
+          value="newers"
+        >
+          Novidades
+        </option>
+        <option
+          value="higher"
+        >
+          Preço: Maior - menor
+        </option>
+        <option
+          value="lower"
+        >
+          Preço: Menor - maior
+        </option>
+      </select>
+      <svg
+        aria-label="sort-icon"
+        role="img"
+      >
+        <circle
+          cx="10"
+          cy="10"
+          r="10"
+        />
+      </svg>
+    </div>
+  </section>
+</div>
+`;

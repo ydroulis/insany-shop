@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<Header /> should match snapshot 1`] = `
+<div>
+  <header
+    class="sc-bRKDuR hKAEpg"
+    role="banner"
+  >
+    <div
+      class="sc-hvigdm ctYeoP"
+      style="max-width: 1120px; width: 100%;"
+    >
+      <h1
+        class="sc-fhHczv MBVZm"
+      >
+        <a
+          aria-label="Ir para a página inicial"
+          href="/"
+        >
+          InsanyShop
+        </a>
+      </h1>
+      <nav
+        aria-label="Acões de navegação"
+        class="sc-ggWZvA gQMdoQ"
+        role="navigation"
+      >
+        <div
+          aria-label="Pesquisar no site"
+          class="sc-jJLAfE eoZoAo"
+          role="search"
+        >
+          <label
+            class="sr-only"
+            for="site-search"
+          >
+            <span
+              class="sc-dYwGCk hFIwWv"
+            >
+              Procurar produtos
+            </span>
+          </label>
+          <input
+            aria-label="Campo de busca"
+            class="sc-hwkwBN eQOOVF"
+            id="site-search"
+            placeholder="Procurando algo específico"
+            type="search"
+          />
+          <svg
+            aria-hidden="true"
+            class="sc-kNOymR jmmeVX"
+            data-testid="search-icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            id="search"
+            stroke="currentColor"
+            stroke-width="0"
+            version="1.1"
+            viewBox="0 0 24 24"
+            width="24"
+            x="0px"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0px"
+          >
+            <g>
+              <path
+                d="M20.031,20.79c0.46,0.46,1.17-0.25,0.71-0.7l-3.75-3.76c1.27-1.41,2.04-3.27,2.04-5.31
+		c0-4.39-3.57-7.96-7.96-7.96s-7.96,3.57-7.96,7.96c0,4.39,3.57,7.96,7.96,7.96c1.98,0,3.81-0.73,5.21-1.94L20.031,20.79z
+		 M4.11,11.02c0-3.84,3.13-6.96,6.96-6.96c3.84,0,6.96,3.12,6.96,6.96c0,3.84-3.12,6.96-6.96,6.96C7.24,17.98,4.11,14.86,4.11,11.02
+		z"
+              />
+            </g>
+          </svg>
+        </div>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Ir para o carrinho de compras"
+          class="sc-dTvVRJ eqRgPl"
+        >
+          <svg
+            aria-hidden="true"
+            color="#5D5D6D"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            style="color: rgb(93, 93, 109);"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+            />
+            <line
+              x1="3"
+              x2="21"
+              y1="6"
+              y2="6"
+            />
+            <path
+              d="M16 10a4 4 0 0 1-8 0"
+            />
+          </svg>
+          <div
+            aria-live="polite"
+            class="sc-jwTyAe gZVExG"
+          >
+            2
+            <span
+              class="sc-hjsuWn diJDsf"
+            >
+              Itens no carrinho
+            </span>
+          </div>
+        </button>
+      </nav>
+    </div>
+  </header>
+</div>
+`;

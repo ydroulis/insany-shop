@@ -28,4 +28,9 @@ describe('<Header />', () => {
         const srText = screen.getByText(/itens no carrinho/i);
         expect(srText).toBeInTheDocument();
     });
+
+    it('should match snapshot', () => {
+        const { container } = render(<Header />);
+        expect(container).toMatchSnapshot();
+    });
 });

@@ -67,4 +67,9 @@ describe("<ProductCard />", () => {
         fireEvent.click(button);
         expect(button).toBeEnabled();
     });
+
+    it("should match snapshot", () => {
+        const { container } = render(<ProductCard {...mockProduct} />);
+        expect(container).toMatchSnapshot();
+    });
 });

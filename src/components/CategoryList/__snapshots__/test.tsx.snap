@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<CategoryList /> should match snapshot 1`] = `
+<div>
+  <section
+    aria-labelledby="categories-title"
+    class="sc-bRKDuR GtvKZ"
+    role="region"
+  >
+    <h2
+      class="sc-hvigdm fbhocO"
+      id="categories-title"
+    >
+      Principais categorias
+    </h2>
+    <ul
+      class="sc-fhHczv hNLWKe"
+      role="list"
+    >
+      <li
+        role="listitem"
+      >
+        <a
+          aria-label="Ver categoria Eletrônicos com 5 produtos"
+          class="sc-ggWZvA edjxiA"
+          href="/category/1"
+        >
+          <article
+            class="sc-dTvVRJ gybGku"
+            data-testid="category-card"
+          >
+            <h3
+              class="sc-jwTyAe kuNBmR"
+            >
+              Eletrônicos
+            </h3>
+            <p
+              aria-hidden="true"
+              class="sc-hjsuWn blXWuW"
+            >
+              5 produtos
+            </p>
+          </article>
+        </a>
+      </li>
+      <li
+        role="listitem"
+      >
+        <a
+          aria-label="Ver categoria Livros com 1 produto"
+          class="sc-ggWZvA edjxiA"
+          href="/category/2"
+        >
+          <article
+            class="sc-dTvVRJ gybGku"
+            data-testid="category-card"
+          >
+            <h3
+              class="sc-jwTyAe kuNBmR"
+            >
+              Livros
+            </h3>
+            <p
+              aria-hidden="true"
+              class="sc-hjsuWn blXWuW"
+            >
+              1 produto
+            </p>
+          </article>
+        </a>
+      </li>
+    </ul>
+  </section>
+</div>
+`;

@@ -17,4 +17,9 @@ describe('<SearchComponent />', () => {
         const icon = screen.getByTestId('search-icon');
         expect(icon).toBeInTheDocument();
     });
+
+    it('should match snapshot', () => {
+        const { container } = render(<SearchComponent />);
+        expect(container).toMatchSnapshot();
+    });
 });

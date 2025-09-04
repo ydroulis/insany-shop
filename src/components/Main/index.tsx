@@ -4,6 +4,7 @@ import * as S from './styles';
 import ProductList from '../ProductList';
 import { Products } from '@/types/Products';
 import Filters from '../Filters';
+import CategoriesList from '../CategoryList';
 
 const categories = [
     {
@@ -170,6 +171,7 @@ const Main: React.FC = () => {
         >
             <Filters />
             <ProductList products={productList} />
+            <CategoriesList categories={categories} />
         </S.Container>
     );
 }

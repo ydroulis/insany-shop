@@ -4,22 +4,31 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export const CardArticle = styled.article`
+export const CardArticle = styled(Link)`
+    display: flex;
     width: 356px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: -6px 8px 20.4px 0px #0000000A;
     transition: transform 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
 
     &:hover {
         transform: scale(1.02);
     }
+
+    &:focus-visible {
+        outline: 3px solid #2563eb;
+        outline-offset: 4px;
+        border-radius: 4px;
+        transform: scale(1.02);
+    }
 `
 
-export const CardLink = styled(Link)`
+export const CardLink = styled.article`
     width: 100%;
-    text-decoration: none;
-    color: inherit;
+    height: 100%;
 `
 
 export const CardImage = styled(Image)`

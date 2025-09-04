@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<Button /> should match snapshot 1`] = `
+<div>
+  <button
+    aria-label="Comprar"
+    class="sc-bRKDuR kBRJWN"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      color="#fff"
+      data-testid="icon-svg"
+      fill="none"
+      focusable="false"
+      height="24"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      style="color: rgb(255, 255, 255);"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="9"
+        cy="21"
+        r="1"
+      />
+      <circle
+        cx="20"
+        cy="21"
+        r="1"
+      />
+      <path
+        d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+      />
+    </svg>
+    <p>
+      Comprar
+    </p>
+  </button>
+</div>
+`;

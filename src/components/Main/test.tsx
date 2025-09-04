@@ -88,4 +88,8 @@ describe("<Main />", () => {
             expect(img.getAttribute("alt")).toMatch(/imagem do produto/i);
         });
     });
+    it("should match snapshot", () => {
+        const { container } = render(<Main />);
+        expect(container).toMatchSnapshot();
+    });
 });

@@ -44,4 +44,8 @@ describe("<Button />", () => {
 
         expect(button.querySelector("svg")).toBeNull();
     });
+    it("should match snapshot", () => {
+        const { container } = render(<Button action={jest.fn()}>Comprar</Button>);
+        expect(container).toMatchSnapshot();
+    });
 });

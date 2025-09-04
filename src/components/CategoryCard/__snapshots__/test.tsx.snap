@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<CategoryCard /> should match snapshot 1`] = `
+<div>
+  <a
+    aria-label="Ver categoria Eletrônicos com 5 produtos"
+    class="sc-bRKDuR hqlWNC"
+    href="/category/eletronicos"
+  >
+    <article
+      class="sc-hvigdm dBOyIL"
+      data-testid="category-card"
+    >
+      <h3
+        class="sc-fhHczv kQgZIE"
+      >
+        Eletrônicos
+      </h3>
+      <p
+        aria-hidden="true"
+        class="sc-ggWZvA hvwsfd"
+      >
+        5 produtos
+      </p>
+    </article>
+  </a>
+</div>
+`;
