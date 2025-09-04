@@ -6,7 +6,7 @@ import Filters from '../Filters';
 import ProductList from '../ProductList';
 
 interface MainCategoryProps {
-    id: string;
+    pageId: string;
 }
 
 const categories = [
@@ -99,15 +99,15 @@ const productList: Products = products.map(product => ({
     category: categories.find(category => category.id === product.category)?.name
 }))
 
-const MainCategory: React.FC<MainCategoryProps> = ({ id }) => {
+const MainCategory: React.FC<MainCategoryProps> = ({ pageId }) => {
     return (
         <S.Container
             as="main"
             role="main"
-            aria-label={`Catálogo de produtos ${id}`}
+            aria-label={`Catálogo de produtos ${pageId}`}
         >
-            <Filters />
-            <ProductList products={productList} pageId={id} />
+            <Filters pageId={pageId} />
+            <ProductList products={productList} pageId={pageId} />
         </S.Container>
     );
 }

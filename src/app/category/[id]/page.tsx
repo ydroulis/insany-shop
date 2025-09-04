@@ -8,6 +8,6 @@ export default async function Page({
 }) {
     const { id: pageId } = await params
     return (
-        <MainCategory id={pageId} />
+        <MainCategory pageId={pageId} />
     )
 }

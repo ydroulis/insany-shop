@@ -1,9 +1,82 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`<Filters /> should match snapshot 1`] = `
+exports[`<Filters /> should match snapshot (with breadcrumb) 1`] = `
 <div>
   <section
-    class="sc-bRKDuR eGTcNz"
+    class="sc-bRKDuR hyYVIi"
+    data-testid="filters-section"
+  >
+    <nav
+      aria-label="breadcrumb"
+    >
+      <ul>
+        <li>
+          <a
+            href="/"
+          >
+            Produtos
+          </a>
+        </li>
+        <span
+          aria-hidden="true"
+        >
+           / 
+        </span>
+        <li>
+          <a
+            class="not-active"
+            href="/category/livros"
+          >
+            Livros
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div>
+      <label
+        for="sort"
+      >
+        Selecione a organização dos produtos
+      </label>
+      <select
+        aria-label="Selecione a organização dos produtos"
+        id="sort"
+      >
+        <option
+          value="newers"
+        >
+          Novidades
+        </option>
+        <option
+          value="higher"
+        >
+          Preço: Maior - menor
+        </option>
+        <option
+          value="lower"
+        >
+          Preço: Menor - maior
+        </option>
+      </select>
+      <svg
+        aria-label="sort-icon"
+        role="img"
+      >
+        <circle
+          cx="10"
+          cy="10"
+          r="10"
+        />
+      </svg>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`<Filters /> should match snapshot (with selectors) 1`] = `
+<div>
+  <section
+    class="sc-bRKDuR hyYVIi"
     data-testid="filters-section"
   >
     <div>
