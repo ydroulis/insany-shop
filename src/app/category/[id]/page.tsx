@@ -1,12 +1,13 @@
 import MainCategory from '@/components/MainCategory';
 import React from 'react';
 
-const CategoryPage: React.FC<{ params: { id: string } }> = ({ params }) => {
-    const pageId = params.id
-
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ id: string }>
+}) {
+    const { id: pageId } = await params
     return (
         <MainCategory id={pageId} />
-    );
+    )
 }
-
-export default CategoryPage;
