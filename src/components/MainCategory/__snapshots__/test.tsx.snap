@@ -8,89 +8,33 @@ exports[`<MainCategory /> should match snapshot 1`] = `
     role="main"
   >
     <section
-      class="sc-hvigdm cqVdnW"
+      class="sc-hvigdm kXQeAz"
       data-testid="filters-section"
     >
-      <div
-        class="sc-fhHczv hFVKTh"
+      <nav
+        aria-label="breadcrumb"
       >
-        <button
-          aria-controls="selector-menu"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-label="Selecione a categoria"
-          class="sc-ggWZvA jlPThq"
-          id="category-selector"
-        >
-          <span>
-            Selecione a categoria
-          </span>
-          <svg
+        <ul>
+          <li>
+            <a
+              href="/"
+            >
+              Produtos
+            </a>
+          </li>
+          <span
             aria-hidden="true"
-            class="icon"
-            color="#737380"
-            fill="currentColor"
-            height="16"
-            stroke="currentColor"
-            stroke-width="0"
-            style="color: rgb(115, 115, 128);"
-            viewBox="0 0 448 512"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+             / 
+          </span>
+          <li>
+            <a
+              class="not-active"
+              href="/category/1"
             />
-          </svg>
-        </button>
-        <div
-          aria-labelledby="custom-selector"
-          class="sc-dTvVRJ jPxDry"
-          id="category-menu"
-          role="listbox"
-        >
-          <button
-            aria-selected="false"
-            class="sc-jwTyAe iKSleq"
-            role="option"
-            tabindex="0"
-          >
-            Eletrônicos
-          </button>
-          <button
-            aria-selected="false"
-            class="sc-jwTyAe iKSleq"
-            role="option"
-            tabindex="0"
-          >
-            Roupas e Calçados
-          </button>
-          <button
-            aria-selected="false"
-            class="sc-jwTyAe iKSleq"
-            role="option"
-            tabindex="0"
-          >
-            Casa e Decoração
-          </button>
-          <button
-            aria-selected="false"
-            class="sc-jwTyAe iKSleq"
-            role="option"
-            tabindex="0"
-          >
-            Livros
-          </button>
-          <button
-            aria-selected="false"
-            class="sc-jwTyAe iKSleq"
-            role="option"
-            tabindex="0"
-          >
-            Esporte e Lazer
-          </button>
-        </div>
-      </div>
+          </li>
+        </ul>
+      </nav>
       <div
         class="sc-fhHczv hFVKTh"
       >

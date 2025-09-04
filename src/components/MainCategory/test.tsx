@@ -5,7 +5,7 @@ import MainCategory from "./";
 
 describe("<MainCategory />", () => {
     beforeEach(() => {
-        render(<MainCategory id="1" />);
+        render(<MainCategory pageId="1" />);
     });
 
     it("should render the main landmark with correct accessibility attributes", () => {
@@ -14,7 +14,7 @@ describe("<MainCategory />", () => {
         expect(main.tagName.toLowerCase()).toBe("main");
     });
     it("should match snapshot", () => {
-        const { container } = render(<MainCategory id="1" />);
+        const { container } = render(<MainCategory pageId="1" />);
         expect(container).toMatchSnapshot();
     });
 });
