@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Button from '../Button';
 import { GoStarFill } from "react-icons/go";
