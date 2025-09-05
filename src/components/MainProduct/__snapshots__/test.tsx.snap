@@ -11,7 +11,7 @@ exports[`<MainProduct /> should match snapshot 1`] = `
       data-testid="back-button"
     >
       <img
-        alt="Voltar"
+        alt="Ícone voltar"
         height="24"
         src="/back.png"
         width="24"
