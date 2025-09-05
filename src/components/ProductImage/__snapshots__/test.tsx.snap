@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<ProductImage /> should match snapshot 1`] = `
+<div>
+  <img
+    alt="Imagem do produto"
+    aria-label="Imagem ilustrativa do produto Tênis Esportivo"
+    class="sc-bRKDuR ipYYMt"
+    data-nimg="1"
+    decoding="async"
+    height="580"
+    loading="lazy"
+    role="img"
+    sizes="(max-width: 768px) 100vw, 640px"
+    src="/_next/image?url=%2Ffake-product.jpg&w=3840&q=75"
+    srcset="/_next/image?url=%2Ffake-product.jpg&w=640&q=75 640w, /_next/image?url=%2Ffake-product.jpg&w=750&q=75 750w, /_next/image?url=%2Ffake-product.jpg&w=828&q=75 828w, /_next/image?url=%2Ffake-product.jpg&w=1080&q=75 1080w, /_next/image?url=%2Ffake-product.jpg&w=1200&q=75 1200w, /_next/image?url=%2Ffake-product.jpg&w=1920&q=75 1920w, /_next/image?url=%2Ffake-product.jpg&w=2048&q=75 2048w, /_next/image?url=%2Ffake-product.jpg&w=3840&q=75 3840w"
+    style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+    width="640"
+  />
+</div>
+`;

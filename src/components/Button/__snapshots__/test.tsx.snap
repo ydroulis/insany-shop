@@ -4,7 +4,7 @@ exports[`<Button /> should match snapshot 1`] = `
 <div>
   <button
     aria-label="Comprar"
-    class="sc-bRKDuR kBRJWN"
+    class="sc-bRKDuR iGlgTQ"
     type="button"
   >
     <svg

@@ -20,6 +20,10 @@ export const Container = styled.button<{ $buttonType: string }>`
     font-weight: 500;
     text-transform: ${({ $buttonType }) => ($buttonType === 'default' ? 'none' : 'uppercase')};
 
+    p{
+        margin: 0;
+    }
+
     &:hover {
         opacity: 0.8;
     }

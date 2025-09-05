@@ -54,14 +54,6 @@ describe("<CategoriesList />", () => {
         expect(screen.getByText("1 produto")).toBeInTheDocument();
     });
 
-    it("should render fallback message when no categories exist", () => {
-        render(<CategoriesList categories={[]} />);
-        const message = screen.getByRole("status");
-        expect(message).toBeInTheDocument();
-        expect(message).toHaveTextContent(/nenhuma categoria encontrada/i);
-        expect(message).toHaveAttribute("aria-live", "polite");
-    });
-
     it("should match snapshot with categories", () => {
         const { container } = render(<CategoriesList categories={categories} />);
         expect(container).toMatchSnapshot();

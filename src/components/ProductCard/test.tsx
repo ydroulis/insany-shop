@@ -32,7 +32,7 @@ describe('<ProductCard />', () => {
     it('should render the card link with correct aria-label', () => {
         const link = screen.getByRole('link', { name: /ver detalhes do produto produto teste/i });
         expect(link).toBeInTheDocument();
-        expect(link).toHaveAttribute('href', '#');
+        expect(link).toHaveAttribute('href', '/product/1');
     });
 
     it('should render product image with correct alt and src', () => {
