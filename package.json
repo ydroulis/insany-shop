@@ -9,6 +9,7 @@
     "lint": "eslint",
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
+    "test:coverage": "jest --coverage",
     "test:ci": "jest --runInband"
   },
   "dependencies": {
@@ -16,7 +17,8 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
-    "styled-components": "^6.1.19"
+    "styled-components": "^6.1.19",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -37,6 +39,7 @@
     "jest-environment-jsdom": "^30.1.2",
     "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
+    "ts-jest": "^29.4.1",
     "typescript": "^5"
   }
 }

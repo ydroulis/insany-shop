@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent } from "../../../.jest/test-utils";
 import Selector from "./";
 import { Options } from "../../types/SelectorOptions";
 

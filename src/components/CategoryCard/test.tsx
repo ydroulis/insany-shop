@@ -1,10 +1,9 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../../.jest/test-utils";
 import CategoryCard from "./";
 import { Category } from "@/types/Categories";
 import "@testing-library/jest-dom";
 
-// Mock do next/link (necessário em testes com Next.js)
 jest.mock("next/link", () => {
     const Link = ({ children, href, ...rest }: { children: React.ReactNode; href: string; }) => (
         <a href={href} {...rest}>

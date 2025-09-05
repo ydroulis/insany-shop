@@ -3,51 +3,17 @@ import React from 'react';
 import * as S from './styles';
 import { Products } from '@/types/Products';
 import ProductCard from '../ProductCard';
+import { useCategoriesStore } from '../../providers/categoriesStoreProvider';
 
 interface ProductListProps {
     products: Products
     pageId?: string
 }
 
-const categories = [
-    {
-        id: "eletronicos",
-        name: "Eletrônicos",
-        description: "Smartphones, laptops, consoles e mais",
-        icon: "📱",
-        productCount: 4
-    },
-    {
-        id: "roupas",
-        name: "Roupas e Calçados",
-        description: "Moda masculina, feminina e acessórios",
-        icon: "👕",
-        productCount: 4
-    },
-    {
-        id: "casa",
-        name: "Casa e Decoração",
-        description: "Móveis, decoração e utilidades domésticas",
-        icon: "🏠",
-        productCount: 3
-    },
-    {
-        id: "livros",
-        name: "Livros",
-        description: "Literatura, técnicos, educacionais e mais",
-        icon: "📚",
-        productCount: 3
-    },
-    {
-        id: "esportes",
-        name: "Esportes e Lazer",
-        description: "Equipamentos esportivos e atividades ao ar livre",
-        icon: "⚽",
-        productCount: 3
-    }
-]
 
 const ProductList: React.FC<ProductListProps> = ({ products, pageId }) => {
+    const { categories } = useCategoriesStore((state => state));
+
     const hasProducts = products && products.length > 0;
     const category = categories.find(category => category.id === pageId)
 
@@ -58,7 +24,6 @@ const ProductList: React.FC<ProductListProps> = ({ products, pageId }) => {
         <S.Container
             aria-labelledby={sectionTitleId}
             aria-describedby={descriptionId}
-            role="region"
         >
             <S.Title id={sectionTitleId}>{pageId ? category?.name : "Todos os Produtos"}</S.Title>
             {pageId && (

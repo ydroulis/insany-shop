@@ -32,6 +32,7 @@ exports[`<ProductCard /> should match snapshot 1`] = `
             <svg
               aria-hidden="true"
               color="#FFE100"
+              data-testid="star-icon"
               fill="currentColor"
               focusable="false"
               height="12"
@@ -64,7 +65,7 @@ exports[`<ProductCard /> should match snapshot 1`] = `
         <p
           class="sc-hjsuWn dfzDzc"
         >
-          Descrição do produto teste
+          Descrição do produto teste com mais detalhes...
         </p>
         <span
           class="sc-jJLAfE bKxnRq"

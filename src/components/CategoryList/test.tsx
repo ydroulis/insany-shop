@@ -1,20 +1,23 @@
 import React from "react";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, within } from "../../../.jest/test-utils";
 import CategoriesList from "./";
 import { Categories } from "@/types/Categories";
 
-
-describe("<CategoryList />", () => {
+describe("<CategoriesList />", () => {
     const categories: Categories = [
         {
-            id: "1", name: "Eletrônicos", productCount: 5,
+            id: "1",
+            name: "Eletrônicos",
+            productCount: 5,
             description: "",
-            icon: ""
+            icon: "",
         },
         {
-            id: "2", name: "Livros", productCount: 1,
+            id: "2",
+            name: "Livros",
+            productCount: 1,
             description: "",
-            icon: ""
+            icon: "",
         },
     ];
 
@@ -31,7 +34,7 @@ describe("<CategoryList />", () => {
         expect(region).toHaveAttribute("aria-labelledby", "categories-title");
     });
 
-    it("should render a list with category list", () => {
+    it("should render a list with the same number of items as categories", () => {
         render(<CategoriesList categories={categories} />);
         const list = screen.getByRole("list");
         expect(list).toBeInTheDocument();
@@ -40,7 +43,7 @@ describe("<CategoryList />", () => {
         expect(items).toHaveLength(categories.length);
     });
 
-    it("should render CategoryCards properly", () => {
+    it("should render CategoryCards with correct content", () => {
         render(<CategoriesList categories={categories} />);
         const cards = screen.getAllByRole("link");
         expect(cards).toHaveLength(categories.length);
@@ -51,8 +54,21 @@ describe("<CategoryList />", () => {
         expect(screen.getByText("1 produto")).toBeInTheDocument();
     });
 
-    it("should match snapshot", () => {
+    it("should render fallback message when no categories exist", () => {
+        render(<CategoriesList categories={[]} />);
+        const message = screen.getByRole("status");
+        expect(message).toBeInTheDocument();
+        expect(message).toHaveTextContent(/nenhuma categoria encontrada/i);
+        expect(message).toHaveAttribute("aria-live", "polite");
+    });
+
+    it("should match snapshot with categories", () => {
         const { container } = render(<CategoriesList categories={categories} />);
+        expect(container).toMatchSnapshot();
+    });
+
+    it("should match snapshot without categories", () => {
+        const { container } = render(<CategoriesList categories={[]} />);
         expect(container).toMatchSnapshot();
     });
 });

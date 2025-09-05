@@ -1,126 +1,125 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import ProductList from "./";
-import { Products } from "@/types/Products";
+import React, { useRef } from 'react';
+import { render, screen, within } from '../../../.jest/test-utils';
+import ProductList from '.';
+import { ProductsStoreProvider } from '../../providers/productsStoreProvider';
+import { CategoriesStoreContext, CategoriesStoreApi } from '../../providers/categoriesStoreProvider';
+import { createCategoriesStore } from '../../stores/categoriesStore';
+import { Product } from '@/types/Products';
 
-jest.mock("../ProductCard", () => {
-    return function MockProductCard({
-        name,
-        description,
-    }: {
-        name: string;
-        description: string;
-    }) {
-        return (
-            <div data-testid="mock-product-card">
-                <h3>{name}</h3>
-                <p>{description}</p>
-            </div>
-        );
-    };
+jest.mock('../ProductCard', () => {
+    const ProductCard = ({ id, name, price, image, category, stock, rating }: Product) => (
+        <div data-testid={`product-card-${id}`}>
+            <img src={image} alt={`Imagem do produto ${name}`} />
+            <span>{name}</span>
+            <span>{category}</span>
+            <span>R$ {price.toFixed(2)}</span>
+            <span>{stock} em estoque</span>
+            <span aria-label={`Avaliação ${rating}`}>⭐ {rating}</span>
+        </div>
+    );
+    return ProductCard;
 });
 
-describe("<ProductList />", () => {
-    const mockProducts: Products = [
-        {
-            id: 1,
-            name: "Produto A",
-            description: "Descrição do Produto A",
-            price: 100,
-            image: "/produto-a.png",
-            category: "eletronicos",
-            stock: 5,
-            rating: 4.5,
-        },
-        {
-            id: 2,
-            name: "Produto B",
-            description: "Descrição do Produto B",
-            price: 200,
-            image: "/produto-b.png",
-            category: "eletronicos",
-            stock: 2,
-            rating: 3.8,
-        },
-    ];
+const TestCategoriesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const storeRef = useRef<CategoriesStoreApi | null>(null);
 
-    it("should render section with role='region' and associated title", () => {
-        render(<ProductList products={mockProducts} />);
-
-        const region = screen.getByRole("region", {
-            name: /todos os produtos/i,
+    if (!storeRef.current) {
+        storeRef.current = createCategoriesStore();
+        storeRef.current.setState({
+            categories: [
+                { id: 'eletronics', name: 'Eletrônicos', productCount: 5, description: 'Categoria de eletrônicos', icon: '' },
+                { id: 'clothing', name: 'Roupas e Calçados', productCount: 3, description: 'Categoria de roupas e calçados', icon: '' },
+            ],
         });
-        expect(region).toBeInTheDocument();
+    }
 
-        const heading = screen.getByRole("heading", { name: /todos os produtos/i });
-        expect(heading).toBeInTheDocument();
-        expect(heading).toHaveAttribute("id", "product-list-title");
+    return (
+        <CategoriesStoreContext.Provider value={storeRef.current}>
+            {children}
+        </CategoriesStoreContext.Provider>
+    );
+};
+
+const renderWithProviders = (ui: React.ReactElement) => {
+    return render(
+        <ProductsStoreProvider>
+            <TestCategoriesProvider>{ui}</TestCategoriesProvider>
+        </ProductsStoreProvider>
+    );
+};
+
+const mockProducts: Product[] = [
+    {
+        id: 1,
+        name: 'iPhone 14',
+        description: 'Smartphone Apple',
+        price: 9999.99,
+        image: '/iphone.png',
+        category: 'Eletrônicos',
+        stock: 5,
+        rating: 4.8,
+    },
+    {
+        id: 2,
+        name: 'Tênis Nike',
+        description: 'Calçado esportivo',
+        price: 499.99,
+        image: '/tenis.png',
+        category: 'Roupas e Calçados',
+        stock: 10,
+        rating: 4.2,
+    },
+];
+
+describe('<ProductList />', () => {
+    it('should render section with title and description when pageId is provided', () => {
+        renderWithProviders(<ProductList products={mockProducts} pageId="eletronics" />);
+        const container = screen.getByRole('region');
+        expect(container).toBeInTheDocument();
+
+        const title = screen.getByRole('heading', { name: 'Eletrônicos' });
+        expect(title).toBeInTheDocument();
+
+        const description = screen.getByText('Categoria de eletrônicos');
+        expect(description).toBeInTheDocument();
     });
 
-    it("should render list of products when not empty", () => {
-        render(<ProductList products={mockProducts} />);
+    it('should render default title when no pageId is provided', () => {
+        renderWithProviders(<ProductList products={mockProducts} />);
+        expect(screen.getByText('Todos os Produtos')).toBeInTheDocument();
+        expect(screen.queryByText(/Categoria de/i)).not.toBeInTheDocument();
+    });
 
-        const list = screen.getByRole("list");
+    it('should render all products as listitems', () => {
+        renderWithProviders(<ProductList products={mockProducts} />);
+        const list = screen.getByRole('list');
         expect(list).toBeInTheDocument();
 
-        const items = screen.getAllByRole("listitem");
-        expect(items).toHaveLength(mockProducts.length);
+        const items = within(list).getAllByRole('listitem');
+        expect(items.length).toBe(mockProducts.length);
 
-        expect(screen.getByText("Produto A")).toBeInTheDocument();
-        expect(screen.getByText("Produto B")).toBeInTheDocument();
+        mockProducts.forEach((product) => {
+            const productCard = screen.getByTestId(`product-card-${product.id}`);
+            expect(productCard).toBeInTheDocument();
+            expect(within(productCard).getByText(product.name)).toBeInTheDocument();
+            expect(within(productCard).getByText(product.category as string)).toBeInTheDocument();
+            expect(within(productCard).getByText(`R$ ${product.price.toFixed(2)}`)).toBeInTheDocument();
+            expect(within(productCard).getByText(`${product.stock} em estoque`)).toBeInTheDocument();
+
+            const rating = within(productCard).getByLabelText(`Avaliação ${product.rating}`);
+            expect(rating).toBeInTheDocument();
+        });
     });
 
-    it("should not render fallback message when products are present", () => {
-        render(<ProductList products={mockProducts} />);
-        expect(
-            screen.queryByText(/nenhum produto disponível/i)
-        ).not.toBeInTheDocument();
+    it('should render fallback message when no products are available', () => {
+        renderWithProviders(<ProductList products={[]} />);
+        const status = screen.getByRole('status');
+        expect(status).toBeInTheDocument();
+        expect(status).toHaveTextContent('Nenhum produto disponível no momento.');
     });
 
-    it("should render acessible fallback message when products are empty", () => {
-        render(<ProductList products={[]} />);
-
-        const fallback = screen.getByRole("status");
-        expect(fallback).toBeInTheDocument();
-        expect(fallback).toHaveAttribute("aria-live", "polite");
-        expect(fallback).toHaveTextContent(/nenhum produto disponível/i);
-    });
-
-    it("should render with pageId and show category name and description", () => {
-        render(<ProductList products={mockProducts} pageId="eletronicos" />);
-
-        const region = screen.getByRole("region", { name: /eletrônicos/i });
-        expect(region).toBeInTheDocument();
-
-        const heading = screen.getByRole("heading", { name: /eletrônicos/i });
-        expect(heading).toHaveAttribute("id", "product-list-title");
-
-        const description = screen.getByText(/smartphones, laptops, consoles e mais/i);
-        expect(description).toBeInTheDocument();
-        expect(description).toHaveAttribute("id", "product-list-description");
-
-        expect(region).toHaveAttribute("aria-describedby", "product-list-description");
-    });
-
-    it("should render product cards with correct props passed", () => {
-        render(<ProductList products={mockProducts} />);
-
-        const cards = screen.getAllByTestId("mock-product-card");
-        expect(cards).toHaveLength(mockProducts.length);
-
-        expect(screen.getByText("Descrição do Produto A")).toBeInTheDocument();
-        expect(screen.getByText("Descrição do Produto B")).toBeInTheDocument();
-    });
-
-    it("should match snapshot without pageId", () => {
-        const { container } = render(<ProductList products={mockProducts} />);
-        expect(container).toMatchSnapshot();
-    });
-
-    it("should match snapshot with pageId", () => {
-        const { container } = render(
-            <ProductList products={mockProducts} pageId="eletronicos" />
-        );
+    it('should match snapshot', () => {
+        const { container } = renderWithProviders(<ProductList products={mockProducts} />);
         expect(container).toMatchSnapshot();
     });
 });

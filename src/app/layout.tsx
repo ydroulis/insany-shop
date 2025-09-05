@@ -3,6 +3,8 @@ import { Inter, Saira } from 'next/font/google';
 import StyledComponentsRegistry from './lib/registry';
 import { Providers } from './providers';
 import Header from '@/components/Header';
+import { ProductsStoreProvider } from '../providers/productsStoreProvider';
+import { CategoriesStoreProvider } from '../providers/categoriesStoreProvider';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,8 +31,12 @@ export default function RootLayout({
       <body suppressHydrationWarning className={`${inter.className} ${saira.className}`}>
         <StyledComponentsRegistry>
           <Providers>
-            <Header />
-            {children}
+            <ProductsStoreProvider>
+              <CategoriesStoreProvider>
+                <Header />
+                {children}
+              </CategoriesStoreProvider>
+            </ProductsStoreProvider>
           </Providers>
         </StyledComponentsRegistry>
       </body>

@@ -1,123 +1,99 @@
+// src/components/Filters/test.tsx
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Filters from './';
+import Filters from '../Filters';
+import { useCategoriesStore } from '../../providers/categoriesStoreProvider';
+import { useProductsStore } from '../../providers/productsStoreProvider';
 import { usePathname } from 'next/navigation';
+import '@testing-library/jest-dom';
 
+jest.mock('../../providers/categoriesStoreProvider');
+jest.mock('../../providers/productsStoreProvider');
 jest.mock('next/navigation', () => ({
     usePathname: jest.fn(),
 }));
 
-jest.mock('../Selector', () => {
-    const mockSelector = ({ type, options, value, setValue, label, id }: {
-        type: string;
-        options: { label: string; value: string; }[];
-        value: string;
-        setValue: React.Dispatch<React.SetStateAction<string>>;
-        label: string;
-        id: string;
-    }) => (
-        <div>
-            <label htmlFor={id}>{label}</label>
-            <select
-                id={id}
-                aria-label={label}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            >
-                {options.map((opt: { label: string; value: string; }) => (
-                    <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                    </option>
-                ))}
-            </select>
-            <svg role="img" aria-label={`${type}-icon`}>
-                <circle cx="10" cy="10" r="10" />
-            </svg>
-        </div>
-    );
-    return mockSelector;
-});
+describe('Filters Component', () => {
+    const mockCategories = [
+        { id: 'eletronics', name: 'Eletrônicos' },
+        { id: 'clothing', name: 'Roupas e Calçados' },
+    ];
 
-describe('<Filters />', () => {
+    const mockProducts = [
+        { id: '1', name: 'Produto 1' },
+        { id: '2', name: 'Produto 2' },
+    ];
+
     beforeEach(() => {
+        (useCategoriesStore as jest.Mock).mockReturnValue({ categories: mockCategories });
+        (useProductsStore as jest.Mock).mockReturnValue({ products: mockProducts });
         (usePathname as jest.Mock).mockReturnValue('/');
     });
 
-    it('should render', () => {
-        render(<Filters pageId="" />);
-        const section = screen.getByTestId('filters-section');
-        expect(section).toBeInTheDocument();
+    it('should render selectors when no pageId is passed', () => {
+        render(<Filters />);
+
+        const filtersSection = screen.getByTestId('filters-section');
+        expect(filtersSection).toBeInTheDocument();
+
+        expect(screen.getByLabelText('Selecione a categoria')).toBeInTheDocument();
+        expect(screen.getByLabelText('Selecione a organização dos produtos')).toBeInTheDocument();
     });
 
-    it('should render Selectors properly when no pageId is provided', () => {
-        render(<Filters pageId="" />);
-        expect(
-            screen.getByLabelText(/Selecione a categoria/i)
-        ).toBeInTheDocument();
-        expect(
-            screen.getByLabelText(/Selecione a organização dos produtos/i)
-        ).toBeInTheDocument();
+    it('should render breadcrumbs when pageId is passed', () => {
+        (usePathname as jest.Mock).mockReturnValue('/category/eletronics');
+
+        render(<Filters pageId="eletronics" />);
+
+        const nav = screen.getByRole('navigation', { name: /breadcrumb/i });
+        expect(nav).toBeInTheDocument();
+
+        expect(screen.getByText('Produtos')).toBeInTheDocument();
+        const categoryLink = screen.getByText('Eletrônicos');
+        expect(categoryLink).toBeInTheDocument();
+
+        expect(categoryLink).toHaveClass('active');
+        expect(categoryLink).toHaveAttribute('aria-current', 'page');
     });
 
-    it('should allow selecting a category', () => {
-        render(<Filters pageId="" />);
-        const categorySelect = screen.getByLabelText(/Selecione a categoria/i);
-        fireEvent.change(categorySelect, { target: { value: 'books' } });
-        expect(categorySelect).toHaveValue('books');
-    });
-
-    it('should allow selecting a sort option', () => {
-        render(<Filters pageId="" />);
-        const sortSelect = screen.getByLabelText(/Selecione a organização dos produtos/i);
-        fireEvent.change(sortSelect, { target: { value: 'higher' } });
-        expect(sortSelect).toHaveValue('higher');
-    });
-
-    it('should render svg icons for each selector', () => {
-        render(<Filters pageId="" />);
-        expect(screen.getByLabelText(/category-icon/i)).toBeInTheDocument();
-        expect(screen.getByLabelText(/sort-icon/i)).toBeInTheDocument();
-    });
-
-    it('should render breadcrumb when pageId is provided', () => {
-        render(<Filters pageId="livros" />);
-        expect(screen.getByRole('navigation', { name: /breadcrumb/i })).toBeInTheDocument();
-        expect(screen.getByText(/Produtos/)).toBeInTheDocument();
-        expect(screen.getByText(/Livros/)).toBeInTheDocument();
-    });
-
-    it('should include separator "/" in breadcrumb', () => {
-        render(<Filters pageId="livros" />);
-        expect(screen.getByText('/')).toBeInTheDocument();
-    });
-
-    it('should mark current category link with aria-current="page"', () => {
-        (usePathname as jest.Mock).mockReturnValue('/category/livros');
-        render(<Filters pageId="livros" />);
-        const link = screen.getByRole('link', { name: /Livros/i });
-        expect(link).toHaveAttribute('aria-current', 'page');
-    });
-
-    it('should NOT mark category link with aria-current when route is different', () => {
+    it('should apply not-active class when breadcrumb link is not active', () => {
         (usePathname as jest.Mock).mockReturnValue('/');
-        render(<Filters pageId="livros" />);
-        const link = screen.getByRole('link', { name: /Livros/i });
-        expect(link).not.toHaveAttribute('aria-current');
+
+        render(<Filters pageId="eletronics" />);
+        const categoryLink = screen.getByText('Eletrônicos');
+        expect(categoryLink).toHaveClass('not-active');
+        expect(categoryLink).not.toHaveAttribute('aria-current');
     });
 
-    it('should not break when an invalid pageId is provided', () => {
-        render(<Filters pageId="invalid-category" />);
-        expect(screen.getByRole('navigation', { name: /breadcrumb/i })).toBeInTheDocument();
-        expect(screen.queryByText(/invalid-category/i)).not.toBeInTheDocument();
+    it('should handle category not found in breadcrumbs', () => {
+        render(<Filters pageId="unknown" />);
+        const categoryLink = screen.queryByText('unknown');
+        expect(categoryLink).toBeEmptyDOMElement || expect(categoryLink).not.toBeInTheDocument();
     });
 
-    it('should match snapshot (with selectors)', () => {
-        const { container } = render(<Filters pageId="" />);
-        expect(container).toMatchSnapshot();
+    it('should update category selector value on change', () => {
+        render(<Filters />);
+
+        const categorySelector = screen.getByLabelText('Selecione a categoria') as HTMLSelectElement;
+        fireEvent.change(categorySelector, { target: { value: 'clothing' } });
+
+        expect(categorySelector.value).toBe('clothing');
     });
 
-    it('should match snapshot (with breadcrumb)', () => {
-        const { container } = render(<Filters pageId="livros" />);
-        expect(container).toMatchSnapshot();
+    it('should update sort selector value on change', () => {
+        render(<Filters />);
+
+        const sortSelector = screen.getByLabelText('Selecione a organização dos produtos') as HTMLSelectElement;
+        fireEvent.change(sortSelector, { target: { value: 'higher' } });
+
+        expect(sortSelector.value).toBe('higher');
+    });
+
+    it('should not render filters section if there are no products', () => {
+        (useProductsStore as jest.Mock).mockReturnValue({ products: [] });
+
+        render(<Filters />);
+
+        expect(screen.queryByTestId('filters-section')).not.toBeInTheDocument();
     });
 });

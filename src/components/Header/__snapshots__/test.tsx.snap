@@ -3,7 +3,7 @@
 exports[`<Header /> should match snapshot 1`] = `
 <div>
   <header
-    class="sc-bRKDuR hKAEpg"
+    class="sc-bRKDuR cMqdoT"
     role="banner"
   >
     <div

@@ -4,7 +4,7 @@ exports[`<MainHome /> should match snapshot 1`] = `
 <div>
   <main
     aria-label="Catálogo de produtos"
-    class="sc-bRKDuR hLcoMF"
+    class="sc-bRKDuR lbXECt"
     role="main"
   >
     <div
@@ -14,298 +14,7 @@ exports[`<MainHome /> should match snapshot 1`] = `
     </div>
     <ul
       data-testid="product-list-mock"
-    >
-      <li>
-        <img
-          alt="Imagem do produto iPhone 15 Pro"
-          src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop"
-        />
-        <span>
-          iPhone 15 Pro
-        </span>
-        <span>
-          Eletrônicos
-        </span>
-        <span>
-          R$ 
-          8999.99
-        </span>
-        <span>
-          25
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.8"
-        >
-          ⭐ 
-          4.8
-        </span>
-        <span>
-          Apple
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto Samsung Galaxy S24 Ultra"
-          src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop"
-        />
-        <span>
-          Samsung Galaxy S24 Ultra
-        </span>
-        <span>
-          Eletrônicos
-        </span>
-        <span>
-          R$ 
-          7499.99
-        </span>
-        <span>
-          18
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.7"
-        >
-          ⭐ 
-          4.7
-        </span>
-        <span>
-          Samsung
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto MacBook Air M3"
-          src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop"
-        />
-        <span>
-          MacBook Air M3
-        </span>
-        <span>
-          Eletrônicos
-        </span>
-        <span>
-          R$ 
-          12999.99
-        </span>
-        <span>
-          12
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.9"
-        >
-          ⭐ 
-          4.9
-        </span>
-        <span>
-          Apple
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto PlayStation 5"
-          src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&h=400&fit=crop"
-        />
-        <span>
-          PlayStation 5
-        </span>
-        <span>
-          Eletrônicos
-        </span>
-        <span>
-          R$ 
-          4199.99
-        </span>
-        <span>
-          8
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.6"
-        >
-          ⭐ 
-          4.6
-        </span>
-        <span>
-          Sony
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto Camiseta Básica Premium"
-          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop"
-        />
-        <span>
-          Camiseta Básica Premium
-        </span>
-        <span>
-          Roupas e Calçados
-        </span>
-        <span>
-          R$ 
-          89.99
-        </span>
-        <span>
-          50
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.4"
-        >
-          ⭐ 
-          4.4
-        </span>
-        <span>
-          BasicWear
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto Jeans Skinny Masculino"
-          src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop"
-        />
-        <span>
-          Jeans Skinny Masculino
-        </span>
-        <span>
-          Roupas e Calçados
-        </span>
-        <span>
-          R$ 
-          199.99
-        </span>
-        <span>
-          30
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.3"
-        >
-          ⭐ 
-          4.3
-        </span>
-        <span>
-          DenimCo
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto Vestido Floral Feminino"
-          src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop"
-        />
-        <span>
-          Vestido Floral Feminino
-        </span>
-        <span>
-          Roupas e Calçados
-        </span>
-        <span>
-          R$ 
-          159.99
-        </span>
-        <span>
-          22
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.5"
-        >
-          ⭐ 
-          4.5
-        </span>
-        <span>
-          FloralStyle
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto Tênis Esportivo Running"
-          src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop"
-        />
-        <span>
-          Tênis Esportivo Running
-        </span>
-        <span>
-          Roupas e Calçados
-        </span>
-        <span>
-          R$ 
-          299.99
-        </span>
-        <span>
-          35
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.6"
-        >
-          ⭐ 
-          4.6
-        </span>
-        <span>
-          RunTech
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto Sofá 3 Lugares Retrátil"
-          src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop"
-        />
-        <span>
-          Sofá 3 Lugares Retrátil
-        </span>
-        <span>
-          Casa e Decoração
-        </span>
-        <span>
-          R$ 
-          1899.99
-        </span>
-        <span>
-          6
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.7"
-        >
-          ⭐ 
-          4.7
-        </span>
-        <span>
-          ComfortHome
-        </span>
-      </li>
-      <li>
-        <img
-          alt="Imagem do produto Mesa de Jantar 6 Lugares"
-          src="https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=400&fit=crop"
-        />
-        <span>
-          Mesa de Jantar 6 Lugares
-        </span>
-        <span>
-          Casa e Decoração
-        </span>
-        <span>
-          R$ 
-          899.99
-        </span>
-        <span>
-          10
-           em estoque
-        </span>
-        <span
-          aria-label="Avaliação 4.4"
-        >
-          ⭐ 
-          4.4
-        </span>
-        <span>
-          ModernLiving
-        </span>
-      </li>
-    </ul>
+    />
     <section
       aria-labelledby="categories-title"
       class="sc-hvigdm cBLToQ"
@@ -325,85 +34,7 @@ exports[`<MainHome /> should match snapshot 1`] = `
           role="listitem"
         >
           <a
-            aria-label="Ver categoria Eletrônicos com 4 produtos"
-            class="sc-dTvVRJ djcVQG"
-            href="/category/eletronicos"
-          >
-            <article
-              class="sc-jwTyAe hTILNK"
-              data-testid="category-card"
-            >
-              <h3
-                class="sc-hjsuWn deQKlM"
-              >
-                Eletrônicos
-              </h3>
-              <p
-                aria-hidden="true"
-                class="sc-jJLAfE dEWSat"
-              >
-                4 produtos
-              </p>
-            </article>
-          </a>
-        </li>
-        <li
-          role="listitem"
-        >
-          <a
-            aria-label="Ver categoria Roupas e Calçados com 4 produtos"
-            class="sc-dTvVRJ djcVQG"
-            href="/category/roupas"
-          >
-            <article
-              class="sc-jwTyAe hTILNK"
-              data-testid="category-card"
-            >
-              <h3
-                class="sc-hjsuWn deQKlM"
-              >
-                Roupas e Calçados
-              </h3>
-              <p
-                aria-hidden="true"
-                class="sc-jJLAfE dEWSat"
-              >
-                4 produtos
-              </p>
-            </article>
-          </a>
-        </li>
-        <li
-          role="listitem"
-        >
-          <a
-            aria-label="Ver categoria Casa e Decoração com 3 produtos"
-            class="sc-dTvVRJ djcVQG"
-            href="/category/casa"
-          >
-            <article
-              class="sc-jwTyAe hTILNK"
-              data-testid="category-card"
-            >
-              <h3
-                class="sc-hjsuWn deQKlM"
-              >
-                Casa e Decoração
-              </h3>
-              <p
-                aria-hidden="true"
-                class="sc-jJLAfE dEWSat"
-              >
-                3 produtos
-              </p>
-            </article>
-          </a>
-        </li>
-        <li
-          role="listitem"
-        >
-          <a
-            aria-label="Ver categoria Livros com 3 produtos"
+            aria-label="Ver categoria Livros com 1 produto"
             class="sc-dTvVRJ djcVQG"
             href="/category/livros"
           >
@@ -420,7 +51,7 @@ exports[`<MainHome /> should match snapshot 1`] = `
                 aria-hidden="true"
                 class="sc-jJLAfE dEWSat"
               >
-                3 produtos
+                1 produto
               </p>
             </article>
           </a>
@@ -429,9 +60,9 @@ exports[`<MainHome /> should match snapshot 1`] = `
           role="listitem"
         >
           <a
-            aria-label="Ver categoria Esportes e Lazer com 3 produtos"
+            aria-label="Ver categoria Eletrônicos com 5 produtos"
             class="sc-dTvVRJ djcVQG"
-            href="/category/esportes"
+            href="/category/eletronics"
           >
             <article
               class="sc-jwTyAe hTILNK"
@@ -440,13 +71,13 @@ exports[`<MainHome /> should match snapshot 1`] = `
               <h3
                 class="sc-hjsuWn deQKlM"
               >
-                Esportes e Lazer
+                Eletrônicos
               </h3>
               <p
                 aria-hidden="true"
                 class="sc-jJLAfE dEWSat"
               >
-                3 produtos
+                5 produtos
               </p>
             </article>
           </a>
