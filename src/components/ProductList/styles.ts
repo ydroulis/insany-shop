@@ -10,6 +10,11 @@ export const Container = styled.section`
     color: #000000;
 
     position: relative;
+
+    p {
+        text-align: center;
+        margin: 0 auto;
+    }
 `
 
 export const Title = styled.h2`

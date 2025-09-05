@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`<CategoryList /> should match snapshot 1`] = `
+exports[`<CategoriesList /> should match snapshot with categories 1`] = `
 <div>
   <section
     aria-labelledby="categories-title"
@@ -70,6 +70,29 @@ exports[`<CategoryList /> should match snapshot 1`] = `
         </a>
       </li>
     </ul>
+  </section>
+</div>
+`;
+
+exports[`<CategoriesList /> should match snapshot without categories 1`] = `
+<div>
+  <section
+    aria-labelledby="categories-title"
+    class="sc-bRKDuR GtvKZ"
+    role="region"
+  >
+    <h2
+      class="sc-hvigdm fbhocO"
+      id="categories-title"
+    >
+      Principais categorias
+    </h2>
+    <p
+      aria-live="polite"
+      role="status"
+    >
+      Nenhuma categoria encontrada
+    </p>
   </section>
 </div>
 `;

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent } from "../../../.jest/test-utils";
 import Button from "./";
 
 describe("<Button />", () => {
@@ -31,7 +31,7 @@ describe("<Button />", () => {
     it("should render shopping cart icon when type is default", () => {
         render(<Button action={jest.fn()}>Cart</Button>);
 
-        const icon = screen.getByTestId("icon-svg"); // vamos configurar isso abaixo
+        const icon = screen.getByTestId("icon-svg");
         expect(icon).toBeInTheDocument();
         expect(icon).toHaveAttribute("aria-hidden", "true");
     });

@@ -36,13 +36,13 @@ const ProductCard: React.FC<Product> = ({
                 <S.Details>
                     <S.Rate>
                         <span>
-                            <GoStarFill size={12} color='#FFE100' aria-hidden="true" focusable="false" />
+                            <GoStarFill size={12} color='#FFE100' aria-hidden="true" focusable="false" data-testid="star-icon" />
                         </span>
                         <span>{rating}</span>
                     </S.Rate>
                     <S.Category>{category}</S.Category>
                     <S.Title>{name}</S.Title>
-                    <S.Description>{description}</S.Description>
+                    <S.Description>{description.slice(0, 58) + "..."}</S.Description>
                     <S.Price>R$ {price.toFixed(2).replace('.', ',')}</S.Price>
                     <S.Stock className='stock' aria-label={`${stock} unidades em estoque`}>{stock} em estoque</S.Stock>
                     <Button

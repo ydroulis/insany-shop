@@ -1,9 +1,9 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import ProductCard from "./";
-import { Product } from "@/types/Products";
+import React from 'react';
+import { render, screen, fireEvent } from '../../../.jest/test-utils';
+import ProductCard from './';
+import { Product } from '@/types/Products';
 
-jest.mock("../Button", () => {
+jest.mock('../Button', () => {
     const MockButton = ({ action, ariaLabel, children }: { action: () => void; ariaLabel?: string; children: React.ReactNode }) => (
         <button onClick={action} aria-label={ariaLabel}>
             {children}
@@ -13,11 +13,11 @@ jest.mock("../Button", () => {
     return MockButton;
 });
 
-describe("<ProductCard />", () => {
+describe('<ProductCard />', () => {
     const mockProduct: Product = {
         id: 1,
         name: "Produto Teste",
-        description: "Descrição do produto teste",
+        description: "Descrição do produto teste com mais detalhes",
         price: 99.99,
         image: "/fake-image.png",
         category: "Eletrônicos",
@@ -25,50 +25,49 @@ describe("<ProductCard />", () => {
         rating: 4.5,
     };
 
-    it("should render all product information", () => {
+    beforeEach(() => {
         render(<ProductCard {...mockProduct} />);
+    });
 
-        const link = screen.getByRole("link", { name: /ver detalhes do produto produto teste/i });
+    it('should render the card link with correct aria-label', () => {
+        const link = screen.getByRole('link', { name: /ver detalhes do produto produto teste/i });
         expect(link).toBeInTheDocument();
-        expect(link).toHaveAttribute("href", "#");
+        expect(link).toHaveAttribute('href', '#');
+    });
 
+    it('should render product image with correct alt and src', () => {
         const image = screen.getByAltText(/imagem do produto produto teste/i);
         expect(image).toBeInTheDocument();
-        expect(image).toHaveAttribute("src", expect.stringContaining("fake-image.png"));
+        expect(image).toHaveAttribute('src', expect.stringContaining('fake-image.png'));
+    });
 
+    it('should render product details', () => {
         expect(screen.getByText(mockProduct.category as string)).toBeInTheDocument();
-        expect(screen.getByRole("heading", { name: mockProduct.name })).toBeInTheDocument();
-        expect(screen.getByText(mockProduct.description)).toBeInTheDocument();
-
-        expect(screen.getByText("R$ 99,99")).toBeInTheDocument();
-
+        expect(screen.getByRole('heading', { name: mockProduct.name })).toBeInTheDocument();
+        expect(screen.getByText(mockProduct.description.slice(0, 58) + "...")).toBeInTheDocument();
+        expect(screen.getByText(`R$ ${mockProduct.price.toFixed(2).replace('.', ',')}`)).toBeInTheDocument();
         const stock = screen.getByText(/10 em estoque/i);
         expect(stock).toBeInTheDocument();
-        expect(stock).toHaveAttribute("aria-label", "10 unidades em estoque");
-
-        const starIcon = screen.getByRole("img", { hidden: true });
-        expect(starIcon).toBeInTheDocument();
-
-        const ratingValue = screen.getByText(mockProduct.rating.toString());
-        expect(ratingValue).toBeInTheDocument();
+        expect(stock).toHaveAttribute('aria-label', '10 unidades em estoque');
     });
 
-    it("should call Button action when clicked", () => {
-        const mockAction = jest.fn();
-        render(
-            <ProductCard
-                {...mockProduct}
-            />
-        );
+    it('should render the rating with svg star icon', () => {
+        const rate = screen.getByText(mockProduct.rating.toString());
+        expect(rate).toBeInTheDocument();
 
-        const button = screen.getByRole("button", { name: /adicionar produto teste ao carrinho/i });
+        const svgIcon = screen.getByTestId('star-icon');
+        expect(svgIcon).toBeInTheDocument();
+    });
+
+    it('should render the add to cart button and respond to click', () => {
+        const button = screen.getByRole('button', { name: /adicionar produto teste ao carrinho/i });
         expect(button).toBeInTheDocument();
+        expect(button).toBeEnabled();
 
         fireEvent.click(button);
-        expect(button).toBeEnabled();
     });
 
-    it("should match snapshot", () => {
+    it('should match snapshot', () => {
         const { container } = render(<ProductCard {...mockProduct} />);
         expect(container).toMatchSnapshot();
     });
