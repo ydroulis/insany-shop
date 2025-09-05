@@ -17,7 +17,7 @@ export const Container = styled.section`
     }
 `
 
-export const Title = styled.h2`
+export const Title = styled.h1`
     font-size: 2.5rem;
     font-weight: 700;
 

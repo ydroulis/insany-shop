@@ -12,14 +12,6 @@ exports[`<MainCategory /> should match snapshot 1`] = `
       aria-labelledby="product-list-title"
       class="sc-hjsuWn bOYdgP"
     >
-      <h2
-        class="sc-jJLAfE kxToVy"
-        id="product-list-title"
-      />
-      <p
-        class="sc-hwkwBN cgVEZH"
-        id="product-list-description"
-      />
       <p
         aria-live="polite"
         role="status"

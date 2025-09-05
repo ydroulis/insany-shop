@@ -17,17 +17,17 @@ const CategoriesList: React.FC<CategoriesListProps> = ({ categories }) => {
             aria-labelledby={sectionTitleId}
             role="region"
         >
-            <S.Title id={sectionTitleId}>Principais categorias</S.Title>
-            {hasCategories ? (
-                <S.List role="list">
-                    {categories.map((category) => (
-                        <li key={category.id} role="listitem">
-                            <CategoryCard {...category} />
-                        </li>
-                    ))}
-                </S.List>
-            ) : (
-                <p role="status" aria-live="polite">Nenhuma categoria encontrada</p>
+            {hasCategories && (
+                <>
+                    <S.Title id={sectionTitleId}>Principais categorias</S.Title>
+                    <S.List role="list">
+                        {categories.map((category) => (
+                            <li key={category.id} role="listitem">
+                                <CategoryCard {...category} />
+                            </li>
+                        ))}
+                    </S.List>
+                </>
             )}
 
         </S.Container>

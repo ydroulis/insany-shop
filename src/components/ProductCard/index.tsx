@@ -17,9 +17,14 @@ const ProductCard: React.FC<Product> = ({
     stock,
     rating
 }) => {
+    const formattedPrice = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    }).format(price);
+
     return (
         <S.CardArticle
-            href="#"
+            href={`/product/${id}`}
         >
             <S.CardLink
                 aria-label={`Ver detalhes do produto ${name}`}
@@ -43,7 +48,7 @@ const ProductCard: React.FC<Product> = ({
                     <S.Category>{category}</S.Category>
                     <S.Title>{name}</S.Title>
                     <S.Description>{description.slice(0, 58) + "..."}</S.Description>
-                    <S.Price>R$ {price.toFixed(2).replace('.', ',')}</S.Price>
+                    <S.Price>{formattedPrice}</S.Price>
                     <S.Stock className='stock' aria-label={`${stock} unidades em estoque`}>{stock} em estoque</S.Stock>
                     <Button
                         action={() => { }}

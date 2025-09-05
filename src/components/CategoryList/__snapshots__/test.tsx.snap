@@ -80,19 +80,6 @@ exports[`<CategoriesList /> should match snapshot without categories 1`] = `
     aria-labelledby="categories-title"
     class="sc-bRKDuR GtvKZ"
     role="region"
-  >
-    <h2
-      class="sc-hvigdm fbhocO"
-      id="categories-title"
-    >
-      Principais categorias
-    </h2>
-    <p
-      aria-live="polite"
-      role="status"
-    >
-      Nenhuma categoria encontrada
-    </p>
-  </section>
+  />
 </div>
 `;

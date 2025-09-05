@@ -6,12 +6,12 @@ exports[`<ProductList /> should match snapshot 1`] = `
     aria-labelledby="product-list-title"
     class="sc-bRKDuR cgOpti"
   >
-    <h2
+    <h1
       class="sc-hvigdm dpWcbF"
       id="product-list-title"
     >
       Todos os Produtos
-    </h2>
+    </h1>
     <ul
       class="sc-ggWZvA eYZMRa"
       role="list"

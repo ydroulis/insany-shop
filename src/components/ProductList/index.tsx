@@ -25,19 +25,21 @@ const ProductList: React.FC<ProductListProps> = ({ products, pageId }) => {
             aria-labelledby={sectionTitleId}
             aria-describedby={descriptionId}
         >
-            <S.Title id={sectionTitleId}>{pageId ? category?.name : "Todos os Produtos"}</S.Title>
-            {pageId && (
-                <S.Description id={descriptionId}>{category?.description}</S.Description>
-            )}
-
             {hasProducts ? (
-                <S.List role="list">
-                    {products.map((product) => (
-                        <li key={product.id} role="listitem">
-                            <ProductCard {...product} />
-                        </li>
-                    ))}
-                </S.List>
+                <>
+                    <S.Title id={sectionTitleId}>{pageId ? category?.name : "Todos os Produtos"}</S.Title>
+                    {pageId && (
+                        <S.Description id={descriptionId}>{category?.description}</S.Description>
+                    )}
+
+                    <S.List role="list">
+                        {products.map((product) => (
+                            <li key={product.id} role="listitem">
+                                <ProductCard {...product} />
+                            </li>
+                        ))}
+                    </S.List>
+                </>
             ) : (
                 <p role="status" aria-live="polite">
                     Nenhum produto disponível no momento.
