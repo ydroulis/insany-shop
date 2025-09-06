@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ProductInfo from "./";
-import Button from "../Button";
 
 describe("<ProductInfo />", () => {
     it("should render product info with correct content", () => {

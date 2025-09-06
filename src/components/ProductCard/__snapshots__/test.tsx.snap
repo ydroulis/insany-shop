@@ -3,7 +3,7 @@
 exports[`<ProductCard /> should match snapshot 1`] = `
 <div>
   <a
-    class="sc-bRKDuR eiEcPF"
+    class="sc-bRKDuR dKkvgI"
     href="/product/1"
   >
     <article
@@ -63,7 +63,7 @@ exports[`<ProductCard /> should match snapshot 1`] = `
           Produto Teste
         </h2>
         <p
-          class="sc-hjsuWn dfzDzc"
+          class="sc-hjsuWn iijRgd"
         >
           Descrição do produto teste com mais detalhes...
         </p>
