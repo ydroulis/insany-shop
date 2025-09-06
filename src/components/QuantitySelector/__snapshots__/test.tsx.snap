@@ -1,19 +1,28 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`<Selector /> should match snapshot 1`] = `
+exports[`<QuantitySelector /> should match snapshot 1`] = `
 <div>
   <div
-    class="sc-bRKDuR jfxMbM"
+    class="sc-bRKDuR fPjpkO"
   >
+    <label
+      class="sr-only"
+      id="quantity-label"
+    >
+      Selecione a quantidade
+    </label>
     <button
-      aria-controls="selector-menu"
+      aria-controls="quantity-listbox"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-label="Selecione uma opção"
-      class="sc-hvigdm eErkQh"
-      id="category-selector"
+      aria-labelledby="quantity-label"
+      class="sc-hvigdm eqGjCL"
+      id="quantity"
+      role="combobox"
     >
-      <span />
+      <span>
+        Option 1
+      </span>
       <svg
         aria-hidden="true"
         class="icon"
@@ -33,14 +42,14 @@ exports[`<Selector /> should match snapshot 1`] = `
       </svg>
     </button>
     <div
-      aria-labelledby="custom-selector"
-      class="sc-fhHczv kosbaP"
-      id="category-menu"
+      aria-labelledby="quantity-label"
+      class="sc-fhHczv eXWIhS"
+      id="quantity-listbox"
       role="listbox"
     >
       <button
-        aria-selected="false"
-        class="sc-ggWZvA hhbPao"
+        aria-selected="true"
+        class="sc-ggWZvA gKPDnv"
         role="option"
         tabindex="0"
       >
@@ -48,11 +57,19 @@ exports[`<Selector /> should match snapshot 1`] = `
       </button>
       <button
         aria-selected="false"
-        class="sc-ggWZvA hhbPao"
+        class="sc-ggWZvA gKPDnv"
         role="option"
         tabindex="0"
       >
         Option 2
+      </button>
+      <button
+        aria-selected="false"
+        class="sc-ggWZvA gKPDnv"
+        role="option"
+        tabindex="0"
+      >
+        Option 3
       </button>
     </div>
   </div>

@@ -14,6 +14,10 @@ export const CardArticle = styled(Link)`
     text-decoration: none;
     color: inherit;
 
+    p{
+        margin: 0;
+    }
+
     &:hover {
         transform: scale(1.02);
     }
@@ -61,7 +65,8 @@ export const Title = styled.h2`
 `
 
 export const Description = styled.p`
-    margin-top: 0.313rem;
+    margin-top: 0.313rem !important;
+    text-align: left !important;
 `
 
 export const Price = styled.span`

@@ -51,6 +51,8 @@ export const SelectorMenu = styled.div<{ $isOpen: boolean }>`
 
     border-radius: 4px;
     background-color: #FFFFFF;
+    position: relative;
+    z-index: 99;
 `
 
 export const SelectorItem = styled.button`
@@ -69,4 +71,4 @@ export const SelectorItem = styled.button`
 
     color: #737380;
     font-family: 'Inter', sans-serif;
-`               
+`
