@@ -45,7 +45,7 @@ describe('<ChartItem />', () => {
     it('should render properly all elements', () => {
         render(<ChartItem {...defaultProps} />);
 
-        const container = screen.getByRole('group', { name: /produto: produto teste/i });
+        const container = screen.getByTestId('chart-item');
         expect(container).toBeInTheDocument();
 
         const image = screen.getByRole('img', { name: /imagem do produto produto teste/i });
@@ -76,5 +76,10 @@ describe('<ChartItem />', () => {
 
         fireEvent.change(select, { target: { value: '3' } });
         expect(select.value).toBe('3');
+    });
+
+    it('should match snapshot', () => {
+        const { container } = render(<ChartItem {...defaultProps} />);
+        expect(container).toMatchSnapshot();
     });
 });

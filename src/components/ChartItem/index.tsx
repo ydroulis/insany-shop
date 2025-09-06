@@ -19,7 +19,7 @@ const ChartItem: React.FC<ChartItemProps> = ({ name, description, price, image }
     }).format(price);
 
     return (
-        <S.Container aria-label={`Produto: ${name}`}>
+        <S.Container data-testid="chart-item" aria-label={`Produto: ${name}`}>
             <S.ProductImage
                 src={image}
                 alt={`Imagem do produto ${name}`}
