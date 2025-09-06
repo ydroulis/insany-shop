@@ -2,6 +2,9 @@
 import React, { useEffect } from 'react';
 import MainProduct from '../../../components/MainProduct';
 import { useCategoriesStore } from '../../../providers/categoriesStoreProvider';
+import { getProductById } from '@/services/products';
+import { getCategories } from '@/services/categories';
+import { Product } from '@/types/Products';
 
 const product =
 {
@@ -59,12 +62,34 @@ type PageProps = {
 };
 
 export default function Page({ params }: PageProps) {
+    const [product, setProduct] = React.useState<Product>({
+        id: 0,
+        name: "",
+        description: "",
+        price: 0,
+        image: "",
+        category: "",
+        stock: 0,
+        rating: 0,
+        brand: ""
+    });
     const { setCategories } = useCategoriesStore((state) => state);
-    // const { id: pageId } = React.use(params);
+    const { id: pageId } = React.use(params);
 
     useEffect(() => {
-        setCategories(categoriesMock);
-    }, [setCategories]);
+        const fetchData = async () => {
+            try {
+                const productData = await getProductById(Number(pageId));
+                setProduct(productData);
+                const categoriesData = await getCategories();
+                setCategories(categoriesMock);
+            } catch (error) {
+                console.error("Erro ao buscar dados da API:", error);
+            }
+        }
+
+        fetchData();
+    }, [setCategories, pageId]);
 
     return <MainProduct product={product} />
 }
