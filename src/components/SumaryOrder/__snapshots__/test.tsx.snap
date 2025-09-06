@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<SumaryOrder /> should match snapshot 1`] = `
+<div>
+  <section
+    aria-labelledby="summary-title"
+    class="sc-bRKDuR dKXnnv"
+    role="region"
+  >
+    <h2
+      class="sc-hvigdm cTwYRL"
+      id="summary-title"
+    >
+      Resumo do pedido
+    </h2>
+    <dl>
+      <div
+        class="sc-fhHczv fwGnLo"
+      >
+        <dt>
+          Subtotal
+        </dt>
+        <dd>
+          R$ 100,00
+        </dd>
+      </div>
+      <div
+        class="sc-ggWZvA kFMIOj"
+      >
+        <dt>
+          Entrega
+        </dt>
+        <dd>
+          R$ 40,00
+        </dd>
+      </div>
+      <div
+        class="sc-dTvVRJ jglFJG"
+      />
+      <div
+        class="sc-jwTyAe fyVbHG"
+      >
+        <dt>
+          Total
+        </dt>
+        <dd>
+          <strong
+            aria-live="polite"
+          >
+            R$ 140,00
+          </strong>
+        </dd>
+      </div>
+    </dl>
+    <button
+      aria-label="Finalizar a compra e ir para o checkout"
+    >
+      Finalizar compra
+    </button>
+    <nav
+      aria-label="Links de suporte"
+    >
+      <ul
+        class="sc-hjsuWn cJXQoz"
+      >
+        <li>
+          <a
+            href="#"
+          >
+            Ajuda
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            Reembolso
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            Entregas e Frete
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+          >
+            Trocas e Devolução
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+</div>
+`;

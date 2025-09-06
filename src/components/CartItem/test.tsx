@@ -1,16 +1,18 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import ChartItem from './';
-
-interface QuantitySelectorMockProps {
-    value: string;
-    setValue: React.Dispatch<React.SetStateAction<string>>;
-    label: string;
-    id: string;
-}
-
-const QuantitySelectorMock: React.FC<QuantitySelectorMockProps> = ({ value, setValue, label, id }) => {
-    return (
+import CartItem from './';
+jest.mock('../QuantitySelector', () => {
+    const QuantitySelectorMock = ({
+        value,
+        setValue,
+        label,
+        id,
+    }: {
+        value: string;
+        setValue: React.Dispatch<React.SetStateAction<string>>;
+        label: string;
+        id: string;
+    }) => (
         <div>
             <label htmlFor={id}>{label}</label>
             <select
@@ -26,34 +28,43 @@ const QuantitySelectorMock: React.FC<QuantitySelectorMockProps> = ({ value, setV
             </select>
         </div>
     );
+    QuantitySelectorMock.displayName = 'QuantitySelectorMock';
+    return QuantitySelectorMock;
+});
+
+const mockCartStore = {
+    removeProductFromCart: jest.fn(),
+    changeItems: jest.fn(),
 };
 
-// Definindo displayName para ESLint
-QuantitySelectorMock.displayName = 'QuantitySelectorMock';
+jest.mock('../../providers/cartStoreProvider', () => ({
+    useCartStore: jest.fn(() => mockCartStore),
+}));
 
-jest.mock('../QuantitySelector', () => QuantitySelectorMock);
-
-
-describe('<ChartItem />', () => {
+describe('<CartItem />', () => {
     const defaultProps = {
         name: 'Produto Teste',
         description: 'Descrição do produto teste',
         price: 123.45,
         image: 'https://via.placeholder.com/256x211.png',
+        id: 1,
+        stock: 5,
     };
 
-    it('should render properly all elements', () => {
-        render(<ChartItem {...defaultProps} />);
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
 
-        const container = screen.getByTestId('chart-item');
+    it('should render properly all elements', () => {
+        render(<CartItem {...defaultProps} />);
+
+        const container = screen.getByTestId('cart-item');
         expect(container).toBeInTheDocument();
 
         const image = screen.getByRole('img', { name: /imagem do produto produto teste/i });
         expect(image).toBeInTheDocument();
-        expect(image).toHaveAttribute('src');
 
         expect(screen.getByText(defaultProps.name)).toBeInTheDocument();
-
         expect(screen.getByText(defaultProps.description)).toBeInTheDocument();
 
         expect(
@@ -70,16 +81,25 @@ describe('<ChartItem />', () => {
         expect(svg).toBeInTheDocument();
     });
 
-    it('should allow change quantity', () => {
-        render(<ChartItem {...defaultProps} />);
+    it('should allow change quantity and call changeItems', () => {
+        render(<CartItem {...defaultProps} />);
         const select = screen.getByTestId('quantity-selector') as HTMLSelectElement;
 
         fireEvent.change(select, { target: { value: '3' } });
         expect(select.value).toBe('3');
+        expect(mockCartStore.changeItems).toHaveBeenCalledWith(defaultProps.id, 3);
+    });
+
+    it('should call removeProductFromCart on remove button click', () => {
+        render(<CartItem {...defaultProps} />);
+        const removeButton = screen.getByRole('button', { name: /remover produto teste do carrinho/i });
+
+        fireEvent.click(removeButton);
+        expect(mockCartStore.removeProductFromCart).toHaveBeenCalledWith(defaultProps.id, defaultProps.price);
     });
 
     it('should match snapshot', () => {
-        const { container } = render(<ChartItem {...defaultProps} />);
+        const { container } = render(<CartItem {...defaultProps} />);
         expect(container).toMatchSnapshot();
     });
 });

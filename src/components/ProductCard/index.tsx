@@ -5,6 +5,7 @@ import { GoStarFill } from "react-icons/go";
 
 import * as S from './styles';
 import { Product } from '@/types/Products';
+import { useCartStore } from '../../providers/cartStoreProvider';
 
 
 const ProductCard: React.FC<Product> = ({
@@ -17,17 +18,24 @@ const ProductCard: React.FC<Product> = ({
     stock,
     rating
 }) => {
+    const { addProductToCart } = useCartStore((state) => state);
     const formattedPrice = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
     }).format(price);
 
+
+    const handleAddProductToCart = () => {
+        addProductToCart({ id, name, description, price, image, stock, items: 1 });
+        alert('Produto adicionado ao carrinho!');
+    }
+
     return (
         <S.CardArticle
-            href={`/product/${id}`}
+            aria-label={`Ver detalhes do produto ${name}`}
         >
             <S.CardLink
-                aria-label={`Ver detalhes do produto ${name}`}
+                href={`/product/${id}`}
             >
                 <S.CardImage
                     src={image}
@@ -50,15 +58,17 @@ const ProductCard: React.FC<Product> = ({
                     <S.Description>{description.slice(0, 58) + "..."}</S.Description>
                     <S.Price>{formattedPrice}</S.Price>
                     <S.Stock className='stock' aria-label={`${stock} unidades em estoque`}>{stock} em estoque</S.Stock>
-                    <Button
-                        action={() => { }}
-                        ariaLabel={`Adicionar ${name} ao carrinho`}
-                        type="default"
-                    >
-                        Adicionar ao carrinho
-                    </Button>
                 </S.Details>
             </S.CardLink>
+            <S.Action>
+                <Button
+                    action={() => handleAddProductToCart()}
+                    ariaLabel={`Adicionar ${name} ao carrinho`}
+                    type="default"
+                >
+                    Adicionar ao carrinho
+                </Button>
+            </S.Action>
         </S.CardArticle>
     );
 }

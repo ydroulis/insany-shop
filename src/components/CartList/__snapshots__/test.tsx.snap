@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<CartList /> should match snapshot 1`] = `
+<div>
+  <section
+    class="sc-bRKDuR jmzipu"
+  >
+    <button
+      aria-label="Voltar para a página anterior"
+      class="sc-hvigdm jhQtkF"
+      data-testid="back-button"
+    >
+      <img
+        alt="Ícone voltar"
+        data-nimg="1"
+        decoding="async"
+        height="24"
+        loading="lazy"
+        src="/_next/image?url=%2Fback.png&w=48&q=75"
+        srcset="/_next/image?url=%2Fback.png&w=32&q=75 1x, /_next/image?url=%2Fback.png&w=48&q=75 2x"
+        style="color: transparent;"
+        width="24"
+      />
+      Voltar
+    </button>
+    <h2
+      class="sc-fhHczv gRnTaJ"
+      id="order-summary-title"
+    >
+      Resumo do pedido
+    </h2>
+    <p
+      aria-labelledby="order-summary-title"
+      aria-live="polite"
+      class="sc-ggWZvA kZqjan"
+    >
+      Total (2 produtos) 
+      <span>
+        R$ 30,00
+      </span>
+    </p>
+    <ul
+      aria-label="Lista de produtos do carrinho"
+      class="sc-dTvVRJ OeEnS"
+    >
+      <li>
+        <div
+          data-testid="cart-item"
+        >
+          <p>
+            Produto 1
+          </p>
+          <p>
+            Desc 1
+          </p>
+          <p>
+            10
+          </p>
+          <img
+            alt="Produto 1"
+            src="img1.png"
+          />
+        </div>
+      </li>
+      <li>
+        <div
+          data-testid="cart-item"
+        >
+          <p>
+            Produto 2
+          </p>
+          <p>
+            Desc 2
+          </p>
+          <p>
+            20
+          </p>
+          <img
+            alt="Produto 2"
+            src="img2.png"
+          />
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+`;

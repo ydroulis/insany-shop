@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`<ChartItem /> should match snapshot 1`] = `
+exports[`<CartItem /> should match snapshot 1`] = `
 <div>
   <article
     aria-label="Produto: Produto Teste"
     class="sc-bRKDuR hLvVdg"
-    data-testid="chart-item"
+    data-testid="cart-item"
   >
     <img
       alt="Imagem do produto Produto Teste"
-      class="sc-hvigdm fReEQp"
+      class="sc-hvigdm flWskD"
       data-nimg="1"
       decoding="async"
       height="211"
