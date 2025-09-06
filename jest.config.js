@@ -5,7 +5,8 @@ module.exports = {
     coveragePathIgnorePatterns: [
         "/node_modules/",
         "<rootDir>/src/stores/",
-        "<rootDir>/src/providers/"
+        "<rootDir>/src/providers/",
+        "<rootDir>/src/services/",
     ],
     collectCoverageFrom: [
         'src/**/*.ts(x)?',

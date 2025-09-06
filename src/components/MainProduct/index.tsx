@@ -30,13 +30,13 @@ const MainProduct: React.FC<MainProductProps> = ({ product }) => {
                 Voltar
             </S.Back>
             <S.Body aria-labelledby="product-title" data-testid="body-product">
-                <ProductImage image={product.image} name={product.name} />
-                <ProductInfo
+                {product.image && <ProductImage image={product.image} name={product.name} />}
+                {product.price !== 0 && <ProductInfo
                     name={product.name}
                     description={product.description}
                     price={product.price}
                     category={category?.name}
-                />
+                />}
             </S.Body>
         </S.Container>
     );

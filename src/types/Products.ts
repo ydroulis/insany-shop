@@ -12,3 +12,16 @@ export type Product = {
     brand?: string
 
 }
+
+export interface Pagination {
+    currentPage: number;
+    totalPages: number;
+    totalProducts: number;
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
+}
+
+export interface ProductsResponse {
+    products: Product[];
+    pagination: Pagination;
+}
