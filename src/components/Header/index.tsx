@@ -1,11 +1,21 @@
+"use client"
 import React from 'react';
 
 import * as S from './styles';
 import SearchComponent from '../SearchComponent';
 import { FiShoppingBag } from "react-icons/fi"
 import Link from 'next/link';
+import { useCartStore } from '../../providers/cartStoreProvider';
+import { useRouter } from 'next/navigation';
 
 const Header: React.FC = () => {
+    const { cart } = useCartStore((state) => state);
+    const router = useRouter();
+
+    const handleRedirect = () => {
+        router.push('/cart');
+    };
+
     return (
         <S.Wrapper role="banner">
             <S.Container style={{ maxWidth: "1120px", width: "100%" }}>
@@ -20,10 +30,11 @@ const Header: React.FC = () => {
                         aria-label='Ir para o carrinho de compras'
                         aria-haspopup="true"
                         aria-expanded="false"
+                        onClick={handleRedirect}
                     >
                         <FiShoppingBag size={24} color='#5D5D6D' aria-hidden="true" />
                         <S.NotificationIndicator aria-live='polite'>
-                            2
+                            {cart.content.length}
                             <S.SrOnly>Itens no carrinho</S.SrOnly>
                         </S.NotificationIndicator>
                     </S.Notifications>

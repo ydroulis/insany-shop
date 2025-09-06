@@ -17,6 +17,7 @@ export const Container = styled.article`
 
 export const ProductImage = styled(Image)`
     min-width: 256px;
+    border-radius: 8px 0px 0px 8px;
 `
 
 export const ProductInfo = styled.div`

@@ -4,15 +4,19 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export const CardArticle = styled(Link)`
+export const CardArticle = styled.article`
     display: flex;
     width: 356px;
-    border-radius: 8px;
+    height: 520px;
+    border-radius: 19px;
     overflow: hidden;
     box-shadow: -6px 8px 20.4px 0px #0000000A;
     transition: transform 0.3s ease-in-out;
-    text-decoration: none;
     color: inherit;
+
+    background-color: #fff;
+    
+    position: relative;
 
     p{
         margin: 0;
@@ -30,9 +34,11 @@ export const CardArticle = styled(Link)`
     }
 `
 
-export const CardLink = styled.article`
+export const CardLink = styled(Link)`
     width: 100%;
-    height: 100%;
+    height: 198px;
+
+    text-decoration: none;
 `
 
 export const CardImage = styled(Image)`
@@ -79,7 +85,7 @@ export const Price = styled.span`
 export const Stock = styled.span`
     position: absolute;
     right: 21px;
-    bottom: 90px;
+    bottom: 50px;
 `
 
 export const Rate = styled.div`
@@ -92,4 +98,12 @@ export const Rate = styled.div`
     right: 21px;
 
     font-weight: 700;
+`
+
+export const Action = styled.div`
+    width: 314px;
+
+    position: absolute;
+    left: 21px;
+    bottom: 28px;
 `

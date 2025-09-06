@@ -5,6 +5,7 @@ import { Providers } from './providers';
 import Header from '@/components/Header';
 import { ProductsStoreProvider } from '../providers/productsStoreProvider';
 import { CategoriesStoreProvider } from '../providers/categoriesStoreProvider';
+import { CartStoreProvider } from '../providers/cartStoreProvider';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,8 +34,10 @@ export default function RootLayout({
           <Providers>
             <ProductsStoreProvider>
               <CategoriesStoreProvider>
-                <Header />
-                {children}
+                <CartStoreProvider>
+                  <Header />
+                  {children}
+                </CartStoreProvider>
               </CategoriesStoreProvider>
             </ProductsStoreProvider>
           </Providers>

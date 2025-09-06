@@ -2,13 +2,13 @@
 
 exports[`<ProductCard /> should match snapshot 1`] = `
 <div>
-  <a
-    class="sc-bRKDuR dKkvgI"
-    href="/product/1"
+  <article
+    aria-label="Ver detalhes do produto Produto Teste"
+    class="sc-bRKDuR dNzCfW"
   >
-    <article
-      aria-label="Ver detalhes do produto Produto Teste"
-      class="sc-hvigdm cOwQtH"
+    <a
+      class="sc-hvigdm VPYOi"
+      href="/product/1"
     >
       <img
         alt="Imagem do produto Produto Teste"
@@ -74,18 +74,22 @@ exports[`<ProductCard /> should match snapshot 1`] = `
         </span>
         <span
           aria-label="10 unidades em estoque"
-          class="sc-hwkwBN hQtOZw stock"
+          class="sc-hwkwBN eKwZmE stock"
         >
           10
            em estoque
         </span>
-        <button
-          aria-label="Adicionar Produto Teste ao carrinho"
-        >
-          Adicionar ao carrinho
-        </button>
       </div>
-    </article>
-  </a>
+    </a>
+    <div
+      class="sc-dYwGCk gtgtHv"
+    >
+      <button
+        aria-label="Adicionar Produto Teste ao carrinho"
+      >
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </article>
 </div>
 `;

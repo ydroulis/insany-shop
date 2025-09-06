@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<MainCart /> should match snapshot 1`] = `
+<div>
+  <main
+    class="sc-bRKDuR kRemGx"
+    role="main"
+  >
+    <ul
+      aria-label="Lista de produtos no carrinho"
+    >
+      <li
+        data-testid="cart-product"
+      >
+        Produto 1
+        <svg
+          data-testid="icon-svg"
+        />
+      </li>
+      <li
+        data-testid="cart-product"
+      >
+        Produto 2
+        <svg
+          data-testid="icon-svg"
+        />
+      </li>
+    </ul>
+    <section
+      aria-label="Resumo do pedido"
+    >
+      <span
+        data-testid="subtotal"
+      >
+        200
+      </span>
+      <svg
+        data-testid="summary-icon"
+      />
+    </section>
+  </main>
+</div>
+`;

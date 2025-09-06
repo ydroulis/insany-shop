@@ -1,25 +1,44 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BsTrash3 } from "react-icons/bs";
 import * as S from './styles';
 import QuantitySelector from '../QuantitySelector';
+import { useCartStore } from '../../providers/cartStoreProvider';
 
-interface ChartItemProps {
+interface CartItemProps {
     name: string;
     description: string;
     price: number;
     image: string;
+    id: number;
+    stock: number
 }
 
-const ChartItem: React.FC<ChartItemProps> = ({ name, description, price, image }) => {
+const CartItem: React.FC<CartItemProps> = ({ name, description, price, image, id, stock }) => {
+    const { removeProductFromCart, changeItems } = useCartStore((state) => state);
     const [value, setValue] = React.useState('1');
+    const [finalPrice, setFinalPrice] = React.useState(price);
+
+    const options = Array.from({ length: Math.min(stock, 10) }, (_, i) => ({
+        value: String(i + 1),
+        label: String(i + 1),
+    }));
+
+    useEffect(() => {
+        const amount = price * Number(value);
+        setFinalPrice(amount);
+        changeItems(id, Number(value));
+
+    }, [price, value]);
 
     const formattedPrice = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
-    }).format(price);
+    }).format(finalPrice);
+
+    const handleRemoveProductFromCart = () => removeProductFromCart(id, price);
 
     return (
-        <S.Container data-testid="chart-item" aria-label={`Produto: ${name}`}>
+        <S.Container data-testid="cart-item" aria-label={`Produto: ${name}`}>
             <S.ProductImage
                 src={image}
                 alt={`Imagem do produto ${name}`}
@@ -30,7 +49,7 @@ const ChartItem: React.FC<ChartItemProps> = ({ name, description, price, image }
                 blurDataURL='...'
             />
             <S.ProductInfo>
-                <S.Remove type="button" aria-label={`Remover ${name} do carrinho`}>
+                <S.Remove type="button" aria-label={`Remover ${name} do carrinho`} onClick={handleRemoveProductFromCart}>
                     <BsTrash3 color='#DE3838' size={24} aria-hidden="true" />
                 </S.Remove>
                 <S.ProductName>{name}</S.ProductName>
@@ -39,12 +58,7 @@ const ChartItem: React.FC<ChartItemProps> = ({ name, description, price, image }
                     <QuantitySelector
                         value={value}
                         setValue={setValue}
-                        options={[
-                            { value: '1', label: '1' },
-                            { value: '2', label: '2' },
-                            { value: '3', label: '3' },
-                            { value: '4', label: '4' },
-                            { value: '5', label: '5' }]}
+                        options={options}
                         label={`Quantidade de ${name}`}
                         id="quantity"
                     />
@@ -57,4 +71,4 @@ const ChartItem: React.FC<ChartItemProps> = ({ name, description, price, image }
     );
 }
 
-export default ChartItem;
+export default CartItem;

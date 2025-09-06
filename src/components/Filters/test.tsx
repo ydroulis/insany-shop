@@ -95,4 +95,9 @@ describe('Filters Component', () => {
 
         expect(screen.queryByTestId('filters-section')).not.toBeInTheDocument();
     });
+
+    it('should match snapshot', () => {
+        const { container } = render(<Filters />);
+        expect(container).toMatchSnapshot();
+    })
 });
