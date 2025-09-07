@@ -9,10 +9,11 @@ import { useCartStore } from '../../providers/cartStoreProvider';
 import { useRouter } from 'next/navigation';
 
 const Header: React.FC = () => {
-    const { cart } = useCartStore((state) => state);
+    const { cart, showFeedback } = useCartStore((state) => state);
     const router = useRouter();
 
     const handleRedirect = () => {
+        showFeedback(false);
         router.push('/cart');
     };
 

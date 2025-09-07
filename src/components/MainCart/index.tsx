@@ -9,10 +9,13 @@ import Image from 'next/image';
 import CartFeedback from '../CartFeedback';
 
 const MainCart: React.FC = () => {
-    const { cart, feedback } = useCartStore((state) => state);
+    const { cart, feedback, showFeedback } = useCartStore((state) => state);
     const router = useRouter();
 
-    const handleBack = () => router.back();
+    const handleBack = () => {
+        showFeedback(false);
+        router.back();
+    }
 
     return (
         <S.Container
@@ -28,7 +31,7 @@ const MainCart: React.FC = () => {
                     <SumaryOrder subtotal={cart.total} aria-label="Resumo do pedido" />
                 </>
             ) : (
-                <div role="status" aria-labelledby="empty-cart-title">
+                <div style={{ margin: '0 auto' }} role="status" aria-labelledby="empty-cart-title">
                     <S.Title id="empty-cart-title">Seu carrinho esta vazio</S.Title>
                 </div>
             )}
