@@ -42,7 +42,7 @@ const CartItem: React.FC<CartItemProps> = ({ name, description, price, image, id
         showFeedback(true);
         setTimeout(() => {
             showFeedback(false);
-        }, 3000);
+        }, 2000);
     }
 
     return (

@@ -1,12 +1,24 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import MainProduct from "./";
-import { Product } from "../../types/Products";
+
+const mockShowFeedback = jest.fn();
+const mockPush = jest.fn();
+const mockBack = jest.fn();
 
 jest.mock("next/navigation", () => ({
     useRouter: () => ({
-        back: jest.fn(),
+        push: mockPush,
+        back: mockBack,
     }),
+}));
+
+jest.mock("../../providers/cartStoreProvider", () => ({
+    useCartStore: jest.fn(() => ({
+        showFeedback: mockShowFeedback,
+        feedback: false,
+        cart: { content: [] },
+    })),
 }));
 
 jest.mock("../../providers/categoriesStoreProvider", () => ({
@@ -17,22 +29,6 @@ jest.mock("../../providers/categoriesStoreProvider", () => ({
         ],
     })),
 }));
-
-jest.mock("next/image", () => {
-    return function NextImageMock({
-        src,
-        alt,
-        width,
-        height,
-    }: {
-        src: string;
-        alt: string;
-        width?: number;
-        height?: number;
-    }) {
-        return <img src={src} alt={alt} width={width} height={height} />;
-    };
-});
 
 jest.mock("../ProductInfo", () => ({
     __esModule: true,
@@ -47,16 +43,15 @@ jest.mock("../ProductInfo", () => ({
 jest.mock("../ProductImage", () => ({
     __esModule: true,
     default: ({ image, name }: { image: string; name: string }) => (
-        <img data-testid="product-image" src={image} alt={`Imagem ilustrativa do produto ${name}`} />
+        <img data-testid="product-image" src={image} alt={name} />
     ),
 }));
 
 describe("<MainProduct />", () => {
-    const product: Product = {
+    const product = {
         id: 1,
         name: "Sofá 3 Lugares Retrátil",
-        description:
-            "Sofá confortável com assento retrátil e reclinável, revestimento em tecido suede e estrutura de madeira maciça.",
+        description: "Sofá confortável com assento retrátil",
         price: 1899.99,
         image: "/fake-product.jpg",
         category: "1",
@@ -64,19 +59,16 @@ describe("<MainProduct />", () => {
         rating: 4.5,
     };
 
-    it("should render all main elements", () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it("should render main elements", () => {
         render(<MainProduct product={product} />);
 
         expect(screen.getByTestId("body-product")).toBeInTheDocument();
-
-        const backButton = screen.getByTestId("back-button");
-        expect(backButton).toBeInTheDocument();
-
-        const image = screen.getByTestId("product-image");
-        expect(image).toHaveAttribute("src", "/fake-product.jpg");
-
-        const productInfo = screen.getByTestId("product-info");
-        expect(productInfo).toBeInTheDocument();
+        expect(screen.getByTestId("product-image")).toHaveAttribute("src", "/fake-product.jpg");
+        expect(screen.getByTestId("product-info")).toBeInTheDocument();
     });
 
     it("should match snapshot", () => {

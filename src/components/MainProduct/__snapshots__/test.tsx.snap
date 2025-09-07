@@ -12,8 +12,13 @@ exports[`<MainProduct /> should match snapshot 1`] = `
     >
       <img
         alt="Ícone voltar"
+        data-nimg="1"
+        decoding="async"
         height="24"
-        src="/back.png"
+        loading="lazy"
+        src="/_next/image?url=%2Fback.png&w=48&q=75"
+        srcset="/_next/image?url=%2Fback.png&w=32&q=75 1x, /_next/image?url=%2Fback.png&w=48&q=75 2x"
+        style="color: transparent;"
         width="24"
       />
       Voltar
@@ -24,7 +29,7 @@ exports[`<MainProduct /> should match snapshot 1`] = `
       data-testid="body-product"
     >
       <img
-        alt="Imagem ilustrativa do produto Sofá 3 Lugares Retrátil"
+        alt="Sofá 3 Lugares Retrátil"
         data-testid="product-image"
         src="/fake-product.jpg"
       />
@@ -35,7 +40,7 @@ exports[`<MainProduct /> should match snapshot 1`] = `
           Sofá 3 Lugares Retrátil
         </h1>
         <p>
-          Sofá confortável com assento retrátil e reclinável, revestimento em tecido suede e estrutura de madeira maciça.
+          Sofá confortável com assento retrátil
         </p>
       </div>
     </section>
