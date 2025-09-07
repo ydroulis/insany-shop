@@ -32,7 +32,7 @@ const ProductCard: React.FC<Product> = ({
         showFeedback(true);
         setTimeout(() => {
             showFeedback(false);
-        }, 3000);
+        }, 2000);
     }
 
     return (
