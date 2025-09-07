@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CartItem from './';
+
 jest.mock('../QuantitySelector', () => {
     const QuantitySelectorMock = ({
         value,
@@ -35,6 +36,7 @@ jest.mock('../QuantitySelector', () => {
 const mockCartStore = {
     removeProductFromCart: jest.fn(),
     changeItems: jest.fn(),
+    showFeedback: jest.fn(),
 };
 
 jest.mock('../../providers/cartStoreProvider', () => ({
@@ -90,12 +92,13 @@ describe('<CartItem />', () => {
         expect(mockCartStore.changeItems).toHaveBeenCalledWith(defaultProps.id, 3);
     });
 
-    it('should call removeProductFromCart on remove button click', () => {
+    it('should call removeProductFromCart and showFeedback on remove button click', () => {
         render(<CartItem {...defaultProps} />);
         const removeButton = screen.getByRole('button', { name: /remover produto teste do carrinho/i });
 
         fireEvent.click(removeButton);
         expect(mockCartStore.removeProductFromCart).toHaveBeenCalledWith(defaultProps.id, defaultProps.price);
+        expect(mockCartStore.showFeedback).toHaveBeenCalledWith(true);
     });
 
     it('should match snapshot', () => {

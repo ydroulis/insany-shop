@@ -4,26 +4,8 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
    color: #41414D;
-`
 
-export const Back = styled.button`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-
-    font-size: 0.875rem;
-    color: #617480;
-
-    margin-top: 1.563rem;
-    margin-bottom: 1.375rem;
-
-    &:hover {
-        opacity: 0.8;
-    }
+   margin-top: 4.438rem;
 `
 
 export const Title = styled.h2`

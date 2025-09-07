@@ -33,10 +33,10 @@ const Header: React.FC = () => {
                         onClick={handleRedirect}
                     >
                         <FiShoppingBag size={24} color='#5D5D6D' aria-hidden="true" />
-                        <S.NotificationIndicator aria-live='polite'>
+                        {cart.content.length > 0 && <S.NotificationIndicator aria-live='polite'>
                             {cart.content.length}
                             <S.SrOnly>Itens no carrinho</S.SrOnly>
-                        </S.NotificationIndicator>
+                        </S.NotificationIndicator>}
                     </S.Notifications>
                 </S.Actions>
             </S.Container>

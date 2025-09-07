@@ -36,6 +36,7 @@ const MainProduct: React.FC<MainProductProps> = ({ product }) => {
                     description={product.description}
                     price={product.price}
                     category={category?.name}
+                    image={product.image}
                 />}
             </S.Body>
         </S.Container>

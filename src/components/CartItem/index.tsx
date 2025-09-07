@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsTrash3 } from "react-icons/bs";
 import * as S from './styles';
 import QuantitySelector from '../QuantitySelector';
 import { useCartStore } from '../../providers/cartStoreProvider';
+import CartFeedback from '../CartFeedback';
 
 interface CartItemProps {
     name: string;
@@ -14,9 +15,9 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = ({ name, description, price, image, id, stock }) => {
-    const { removeProductFromCart, changeItems } = useCartStore((state) => state);
-    const [value, setValue] = React.useState('1');
-    const [finalPrice, setFinalPrice] = React.useState(price);
+    const { removeProductFromCart, changeItems, showFeedback } = useCartStore((state) => state);
+    const [value, setValue] = useState('1');
+    const [finalPrice, setFinalPrice] = useState(price);
 
     const options = Array.from({ length: Math.min(stock, 10) }, (_, i) => ({
         value: String(i + 1),
@@ -28,14 +29,21 @@ const CartItem: React.FC<CartItemProps> = ({ name, description, price, image, id
         setFinalPrice(amount);
         changeItems(id, Number(value));
 
-    }, [price, value]);
+    }, [changeItems, id, price, value]);
 
     const formattedPrice = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
     }).format(finalPrice);
 
-    const handleRemoveProductFromCart = () => removeProductFromCart(id, price);
+    const handleRemoveProductFromCart = () => {
+        removeProductFromCart(id, price);
+
+        showFeedback(true);
+        setTimeout(() => {
+            showFeedback(false);
+        }, 3000);
+    }
 
     return (
         <S.Container data-testid="cart-item" aria-label={`Produto: ${name}`}>

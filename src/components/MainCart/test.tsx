@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ImgHTMLAttributes } from 'react';
 import { render, screen } from '@testing-library/react';
 import MainCart from './';
 import { useCartStore } from '../../providers/cartStoreProvider';
@@ -8,6 +8,23 @@ import type { CartProduct } from '../../types/Cart';
 jest.mock('../../providers/cartStoreProvider', () => ({
     useCartStore: jest.fn(),
 }));
+
+const mockBack = jest.fn();
+jest.mock('next/navigation', () => ({
+    useRouter: () => ({
+        back: mockBack,
+    }),
+}));
+
+jest.mock('next/image', () => {
+    const MockedImage: FC<ImgHTMLAttributes<HTMLImageElement>> = (props) => {
+        return <img {...props} alt={props.alt || 'mocked image'} />;
+    };
+    return {
+        __esModule: true,
+        default: MockedImage,
+    };
+});
 
 jest.mock('../CartList', () => ({
     __esModule: true,
@@ -55,6 +72,8 @@ describe('<MainCart />', () => {
             addProductToCart: jest.fn(),
             removeProductFromCart: jest.fn(),
             changeItems: jest.fn(),
+            showFeedback: jest.fn(),
+            feedback: false,
         });
 
         render(<MainCart />);
@@ -72,6 +91,8 @@ describe('<MainCart />', () => {
             addProductToCart: jest.fn(),
             removeProductFromCart: jest.fn(),
             changeItems: jest.fn(),
+            showFeedback: jest.fn(),
+            feedback: false,
         });
 
         render(<MainCart />);
@@ -93,6 +114,8 @@ describe('<MainCart />', () => {
             addProductToCart: jest.fn(),
             removeProductFromCart: jest.fn(),
             changeItems: jest.fn(),
+            showFeedback: jest.fn(),
+            feedback: false,
         });
 
         const { container } = render(<MainCart />);

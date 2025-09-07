@@ -3,9 +3,22 @@
 exports[`<MainCart /> should match snapshot 1`] = `
 <div>
   <main
-    class="sc-bRKDuR kRemGx"
+    class="sc-bRKDuR hrPDot"
     role="main"
   >
+    <button
+      aria-label="Voltar para a página anterior"
+      class="sc-hvigdm hjxKkl"
+      data-testid="back-button"
+    >
+      <img
+        alt="Ícone voltar"
+        height="24"
+        src="/back.png"
+        width="24"
+      />
+      Voltar
+    </button>
     <ul
       aria-label="Lista de produtos no carrinho"
     >

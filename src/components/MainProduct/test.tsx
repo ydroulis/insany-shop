@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import MainProduct from "./";
-import { Product } from "@/types/Products";
+import { Product } from "../../types/Products";
 
 jest.mock("next/navigation", () => ({
     useRouter: () => ({
@@ -18,9 +18,37 @@ jest.mock("../../providers/categoriesStoreProvider", () => ({
     })),
 }));
 
-jest.mock("next/image", () => ({
+jest.mock("next/image", () => {
+    return function NextImageMock({
+        src,
+        alt,
+        width,
+        height,
+    }: {
+        src: string;
+        alt: string;
+        width?: number;
+        height?: number;
+    }) {
+        return <img src={src} alt={alt} width={width} height={height} />;
+    };
+});
+
+jest.mock("../ProductInfo", () => ({
     __esModule: true,
-    default: (props: { src: string; alt: string }) => <img {...props} />,
+    default: ({ name, description }: { name: string; description: string }) => (
+        <div data-testid="product-info">
+            <h1>{name}</h1>
+            <p>{description}</p>
+        </div>
+    ),
+}));
+
+jest.mock("../ProductImage", () => ({
+    __esModule: true,
+    default: ({ image, name }: { image: string; name: string }) => (
+        <img data-testid="product-image" src={image} alt={`Imagem ilustrativa do produto ${name}`} />
+    ),
 }));
 
 describe("<MainProduct />", () => {
@@ -39,28 +67,16 @@ describe("<MainProduct />", () => {
     it("should render all main elements", () => {
         render(<MainProduct product={product} />);
 
-        const body = screen.getByTestId("body-product");
-        expect(body).toBeInTheDocument();
-        expect(body).toHaveAttribute("aria-labelledby", "product-title");
+        expect(screen.getByTestId("body-product")).toBeInTheDocument();
 
-        const backButton = screen.getByRole("button", { name: /voltar para a página anterior/i });
+        const backButton = screen.getByTestId("back-button");
         expect(backButton).toBeInTheDocument();
 
-        const title = screen.getByRole("heading", { name: /Sofá 3 Lugares Retrátil/i });
-        expect(title).toBeInTheDocument();
-
-        const image = screen.getByRole("img", { name: /imagem ilustrativa do produto sofá 3 lugares retrátil/i });
-        expect(image).toBeInTheDocument();
+        const image = screen.getByTestId("product-image");
         expect(image).toHaveAttribute("src", "/fake-product.jpg");
 
-        expect(screen.getByText(/Sofá confortável com assento retrátil/i)).toBeInTheDocument();
-
-        expect(screen.getByText(/Casa e Decoração/i)).toBeInTheDocument();
-
-        const price = screen.getByLabelText(/Preço do produto/i);
-        expect(price).toBeInTheDocument();
-        expect(price.textContent?.replace(/\u00A0/g, " ")).toBe("R$ 1.899,99");
-
+        const productInfo = screen.getByTestId("product-info");
+        expect(productInfo).toBeInTheDocument();
     });
 
     it("should match snapshot", () => {

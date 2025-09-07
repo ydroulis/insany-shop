@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export const Container = styled.section`
     max-width: 1120px;
 
-    margin: 48px auto 51px auto;
+    margin: 3rem auto 6.5rem auto;
 
     color: #000000;
 

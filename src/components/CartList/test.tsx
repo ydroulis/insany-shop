@@ -1,14 +1,18 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import CartList from './';
-import { useRouter } from 'next/navigation';
-import { Products } from '@/types/Products';
 
-jest.mock('next/navigation', () => ({
-    useRouter: jest.fn(),
-}));
-
-const CartItemMock = ({ name, description, price, image }: { name: string; description: string; price: number; image: string; }) => (
+const CartItemMock = ({
+    name,
+    description,
+    price,
+    image,
+}: {
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+}) => (
     <div data-testid="cart-item">
         <p>{name}</p>
         <p>{description}</p>
@@ -22,8 +26,7 @@ CartItemMock.displayName = 'CartItemMock';
 jest.mock('../CartItem', () => CartItemMock);
 
 describe('<CartList />', () => {
-    const mockBack = jest.fn();
-    const products: Products = [
+    const products = [
         {
             id: 1,
             name: 'Produto 1',
@@ -46,27 +49,19 @@ describe('<CartList />', () => {
         },
     ];
 
-    beforeEach(() => {
-        (useRouter as jest.Mock).mockReturnValue({ back: mockBack });
-    });
-
     it('should render all elements properly', () => {
         render(<CartList products={products} />);
-
-        const backButton = screen.getByRole('button', { name: /voltar para a página anterior/i });
-        expect(backButton).toBeInTheDocument();
-        expect(backButton.querySelector('img')).toBeInTheDocument();
 
         const title = screen.getByRole('heading', { name: /resumo do pedido/i });
         expect(title).toBeInTheDocument();
 
         const totalText = `Total (${products.length} produtos)`;
-        expect(screen.getByText((content, element) =>
-            element?.tagName.toLowerCase() === 'p' && content.includes(totalText)
-        )).toBeInTheDocument();
         expect(
-            screen.getByText((content) => content.replace(/\s/g, '') === 'R$30,00')
+            screen.getByText((content, element) =>
+                element?.tagName.toLowerCase() === 'p' && content.includes(totalText)
+            )
         ).toBeInTheDocument();
+        expect(screen.getByText('R$ 30,00')).toBeInTheDocument();
 
         const list = screen.getByRole('list', { name: /lista de produtos do carrinho/i });
         expect(list).toBeInTheDocument();
@@ -80,15 +75,8 @@ describe('<CartList />', () => {
         });
     });
 
-    it('it should call router.back when the back button is clicked', () => {
-        render(<CartList products={products} />);
-        const backButton = screen.getByRole('button', { name: /voltar para a página anterior/i });
-        fireEvent.click(backButton);
-        expect(mockBack).toHaveBeenCalledTimes(1);
-    });
-
     it('should match snapshot', () => {
         const { container } = render(<CartList products={products} />);
         expect(container).toMatchSnapshot();
-    })
+    });
 });

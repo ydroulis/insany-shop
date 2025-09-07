@@ -105,7 +105,7 @@ export default function Page({ params }: PageProps) {
         if (categories.length === 0) {
             setCategories(categoriesMock);
         }
-    }, [setProducts]);
+    }, [categories.length, setCategories, setProducts]);
 
     return <MainCategory pageId={pageId} />;
 }

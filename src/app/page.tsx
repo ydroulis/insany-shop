@@ -5,19 +5,21 @@ import { useProductsStore } from "../providers/productsStoreProvider";
 import { useEffect } from "react";
 import { getProducts } from "@/services/products";
 import { getCategories } from "@/services/categories";
+import { useCartStore } from "@/providers/cartStoreProvider";
 
 export default function Home() {
-  const { setProducts } = useProductsStore(state => state);
+  const { setProducts, setPagination } = useProductsStore(state => state);
   const { setCategories } = useCategoriesStore(state => state);
+  const { cart } = useCartStore(state => state);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const productsData = await getProducts();
+        const productsData = await getProducts(1, 6);
         const categoriesData = await getCategories();
 
         setProducts(productsData.products);
-
+        setPagination(productsData.pagination);
         setCategories(categoriesData.categories);
       } catch (error) {
         console.error("Erro ao buscar dados da API:", error);
@@ -25,7 +27,7 @@ export default function Home() {
     };
 
     fetchData();
-  }, [setProducts, setCategories]);
+  }, [setProducts, setCategories, setPagination]);
 
 
 
