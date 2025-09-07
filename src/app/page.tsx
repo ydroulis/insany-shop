@@ -10,7 +10,6 @@ import { useCartStore } from "@/providers/cartStoreProvider";
 export default function Home() {
   const { setProducts, setPagination } = useProductsStore(state => state);
   const { setCategories } = useCategoriesStore(state => state);
-  const { cart } = useCartStore(state => state);
 
   useEffect(() => {
     const fetchData = async () => {
