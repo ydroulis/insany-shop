@@ -1,8 +1,10 @@
 "use client"
-import MainCategory from '@/components/MainCategory';
 import { useProductsStore } from '../../../providers/productsStoreProvider';
 import React, { useEffect } from 'react';
 import { useCategoriesStore } from '../../../providers/categoriesStoreProvider';
+import { getProducts } from '../../../services/products';
+import { getCategories } from '../../../services/categories';
+import MainCategory from '@/components/MainCategory';
 
 const products = [
     {
@@ -94,18 +96,27 @@ type PageProps = {
 };
 
 export default function Page({ params }: PageProps) {
-    const { setProducts } = useProductsStore((state) => state);
-    const { setCategories, categories } = useCategoriesStore((state) => state);
+    const { setProducts, setPagination } = useProductsStore((state) => state);
+    const { setCategories } = useCategoriesStore((state) => state);
 
     const { id: pageId } = React.use(params);
 
     useEffect(() => {
-        setProducts(products);
+        const fetchData = async () => {
+            try {
+                const productsData = await getProducts(1, 6, pageId);
+                const categoriesData = await getCategories();
 
-        if (categories.length === 0) {
-            setCategories(categoriesMock);
-        }
-    }, [categories.length, setCategories, setProducts]);
+                setPagination(productsData.pagination);
+                setProducts(productsData.products);
+                setCategories(categoriesData.categories);
+            } catch (error) {
+                console.error("Erro ao buscar dados da API:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     return <MainCategory pageId={pageId} />;
 }
