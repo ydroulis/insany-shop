@@ -11,7 +11,7 @@ export const getProducts = async (
     if (limit) params.limit = limit;
     if (category) params.category = category;
 
-    const response = await api.get<ProductsResponse>("/products");
+    const response = await api.get<ProductsResponse>("/products", { params });
     return response.data;
 };
 
