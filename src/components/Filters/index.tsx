@@ -50,7 +50,7 @@ const Filters: React.FC<FiltersProps> = ({ pageId }) => {
             fetchCategoryProducts()
         }
 
-    }, [setProducts, valueCategory])
+    }, [setPagination, setProducts, valueCategory])
 
     useEffect(() => {
         switch (valueSort) {
