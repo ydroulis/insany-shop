@@ -1,7 +1,5 @@
 import React from 'react';
 import CartItem from '../CartItem';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 import * as S from './styles';
 import { CartProduct } from '@/types/Cart';
@@ -11,9 +9,6 @@ interface CartItemProps {
 }
 
 const CartList: React.FC<CartItemProps> = ({ products }) => {
-    const router = useRouter();
-
-    const handleBack = () => router.back();
 
     const total = products.reduce((acc, product) => acc + product.price, 0);
 
@@ -24,10 +19,6 @@ const CartList: React.FC<CartItemProps> = ({ products }) => {
 
     return (
         <S.Container>
-            <S.Back data-testid="back-button" onClick={handleBack} aria-label="Voltar para a página anterior">
-                <Image src="/back.png" alt="Ícone voltar" width={24} height={24} />
-                Voltar
-            </S.Back>
             <S.Title id="order-summary-title">Resumo do pedido</S.Title>
             <S.Amount
                 aria-live="polite"

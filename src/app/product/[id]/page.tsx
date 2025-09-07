@@ -5,6 +5,7 @@ import { useCategoriesStore } from '../../../providers/categoriesStoreProvider';
 import { getProductById } from '@/services/products';
 import { getCategories } from '@/services/categories';
 import { Product } from '@/types/Products';
+import { useCartStore } from '@/providers/cartStoreProvider';
 
 const product =
 {
@@ -75,6 +76,7 @@ export default function Page({ params }: PageProps) {
     });
     const { setCategories } = useCategoriesStore((state) => state);
     const { id: pageId } = React.use(params);
+    const { cart } = useCartStore(state => state);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -82,7 +84,7 @@ export default function Page({ params }: PageProps) {
                 const productData = await getProductById(Number(pageId));
                 setProduct(productData);
                 const categoriesData = await getCategories();
-                setCategories(categoriesMock);
+                setCategories(categoriesData.categories);
             } catch (error) {
                 console.error("Erro ao buscar dados da API:", error);
             }

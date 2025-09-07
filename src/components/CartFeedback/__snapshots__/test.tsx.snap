@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`<CartFeedback /> should match snapshot 1`] = `
+<div>
+  <div
+    aria-label="Aviso de informação"
+    aria-live="assertive"
+    data-background="blue"
+    data-color="red"
+    data-testid="container"
+    role="alert"
+  >
+    <p>
+      Testando estilos
+    </p>
+  </div>
+</div>
+`;

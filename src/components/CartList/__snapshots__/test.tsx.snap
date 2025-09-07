@@ -3,28 +3,10 @@
 exports[`<CartList /> should match snapshot 1`] = `
 <div>
   <section
-    class="sc-bRKDuR jmzipu"
+    class="sc-bRKDuR faLdco"
   >
-    <button
-      aria-label="Voltar para a página anterior"
-      class="sc-hvigdm jhQtkF"
-      data-testid="back-button"
-    >
-      <img
-        alt="Ícone voltar"
-        data-nimg="1"
-        decoding="async"
-        height="24"
-        loading="lazy"
-        src="/_next/image?url=%2Fback.png&w=48&q=75"
-        srcset="/_next/image?url=%2Fback.png&w=32&q=75 1x, /_next/image?url=%2Fback.png&w=48&q=75 2x"
-        style="color: transparent;"
-        width="24"
-      />
-      Voltar
-    </button>
     <h2
-      class="sc-fhHczv gRnTaJ"
+      class="sc-hvigdm kLTKGJ"
       id="order-summary-title"
     >
       Resumo do pedido
@@ -32,7 +14,7 @@ exports[`<CartList /> should match snapshot 1`] = `
     <p
       aria-labelledby="order-summary-title"
       aria-live="polite"
-      class="sc-ggWZvA kZqjan"
+      class="sc-fhHczv dzDssg"
     >
       Total (2 produtos) 
       <span>
@@ -41,7 +23,7 @@ exports[`<CartList /> should match snapshot 1`] = `
     </p>
     <ul
       aria-label="Lista de produtos do carrinho"
-      class="sc-dTvVRJ OeEnS"
+      class="sc-ggWZvA YqVpg"
     >
       <li>
         <div

@@ -2,15 +2,16 @@ import React from "react";
 import { render, screen, fireEvent } from "../../../.jest/test-utils";
 import ProductCard from "./";
 import type { Product } from "@/types/Products";
-import type { CartActions } from "../../stores/cartStore";
 
-const mockCartActions: Pick<CartActions, "addProductToCart"> = {
+const mockCartStore = {
     addProductToCart: jest.fn(),
+    showFeedback: jest.fn(),
+    feedback: true,
 };
 
 jest.mock("../../providers/cartStoreProvider", () => ({
-    useCartStore: <T,>(selector: (state: typeof mockCartActions) => T): T =>
-        selector(mockCartActions),
+    useCartStore: <T,>(selector: (state: typeof mockCartStore) => T): T =>
+        selector(mockCartStore),
 }));
 
 jest.mock("../Button", () => {
@@ -29,6 +30,19 @@ jest.mock("../Button", () => {
     );
     MockButton.displayName = "Button";
     return MockButton;
+});
+
+jest.mock("../CartFeedback", () => {
+    const MockCartFeedback = ({
+        children,
+    }: {
+        children: React.ReactNode;
+        color?: string;
+        background?: string;
+        type?: "success" | "error" | "info";
+    }) => <div data-testid="cart-feedback">{children}</div>;
+    MockCartFeedback.displayName = "CartFeedback";
+    return MockCartFeedback;
 });
 
 describe("<ProductCard />", () => {
@@ -80,16 +94,14 @@ describe("<ProductCard />", () => {
         expect(svgIcon).toBeInTheDocument();
     });
 
-    it("should render add to cart button and handle click with alert", () => {
-        const alertSpy = jest.spyOn(window, "alert").mockImplementation(() => { });
-
+    it("should render add to cart button and handle click with feedback", () => {
         const button = screen.getByRole("button", {
             name: /adicionar produto teste ao carrinho/i,
         });
 
         fireEvent.click(button);
 
-        expect(mockCartActions.addProductToCart).toHaveBeenCalledWith({
+        expect(mockCartStore.addProductToCart).toHaveBeenCalledWith({
             id: mockProduct.id,
             name: mockProduct.name,
             description: mockProduct.description,
@@ -99,8 +111,7 @@ describe("<ProductCard />", () => {
             items: 1,
         });
 
-        expect(alertSpy).toHaveBeenCalledWith("Produto adicionado ao carrinho!");
-        alertSpy.mockRestore();
+        expect(screen.getByTestId("cart-feedback")).toBeInTheDocument();
     });
 
     it("should not break accessibility by nesting interactive elements", () => {

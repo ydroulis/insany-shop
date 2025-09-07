@@ -91,5 +91,10 @@ exports[`<ProductCard /> should match snapshot 1`] = `
       </button>
     </div>
   </article>
+  <div
+    data-testid="cart-feedback"
+  >
+    Produto adicionado ao carrinho!
+  </div>
 </div>
 `;

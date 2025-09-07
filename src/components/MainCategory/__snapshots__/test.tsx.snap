@@ -10,7 +10,7 @@ exports[`<MainCategory /> should match snapshot 1`] = `
     <section
       aria-describedby="product-list-description"
       aria-labelledby="product-list-title"
-      class="sc-hjsuWn bOYdgP"
+      class="sc-hjsuWn kLMIfd"
     >
       <p
         aria-live="polite"

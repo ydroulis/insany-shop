@@ -33,7 +33,7 @@ const Filters: React.FC<FiltersProps> = ({ pageId }) => {
     const [valueSort, setValueSort] = useState('Organizar por');
 
     const { categories } = useCategoriesStore((state) => state);
-    const { products, setProducts } = useProductsStore((state) => state);
+    const { products, setProducts, setPagination } = useProductsStore((state) => state);
 
 
 
@@ -44,6 +44,7 @@ const Filters: React.FC<FiltersProps> = ({ pageId }) => {
         if (valueCategory !== 'Selecione a categoria') {
             const fetchCategoryProducts = async () => {
                 const res = await getProducts(1, 100, categoryValueSelected);
+                setPagination(res.pagination);
                 setProducts(res.products);
             }
             fetchCategoryProducts()

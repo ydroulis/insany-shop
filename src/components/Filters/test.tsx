@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Filters from '../Filters';
 import { useCategoriesStore } from '../../providers/categoriesStoreProvider';
 import { useProductsStore } from '../../providers/productsStoreProvider';
@@ -26,12 +27,20 @@ describe('Filters Component', () => {
     ];
 
     const mockSetProducts = jest.fn();
+    const mockSetPagination = jest.fn();
 
     beforeEach(() => {
         (useCategoriesStore as jest.Mock).mockReturnValue({ categories: mockCategories });
-        (useProductsStore as jest.Mock).mockReturnValue({ products: mockProducts, setProducts: mockSetProducts });
+        (useProductsStore as jest.Mock).mockReturnValue({
+            products: mockProducts,
+            setProducts: mockSetProducts,
+            setPagination: mockSetPagination,
+        });
         (usePathname as jest.Mock).mockReturnValue('/');
-        (getProducts as jest.Mock).mockResolvedValue({ products: mockProducts });
+        (getProducts as jest.Mock).mockResolvedValue({
+            products: mockProducts,
+            pagination: { page: 1, total: 1, limit: 100 },
+        });
         jest.clearAllMocks();
     });
 
@@ -80,13 +89,14 @@ describe('Filters Component', () => {
         render(<Filters />);
 
         const categoryButton = screen.getByLabelText('Selecione a categoria');
-        fireEvent.click(categoryButton);
+        await userEvent.click(categoryButton);
 
         const option = screen.getByRole('option', { name: 'Eletrônicos' });
-        fireEvent.click(option);
+        await userEvent.click(option);
 
         await waitFor(() => {
             expect(mockSetProducts).toHaveBeenCalledWith(mockProducts);
+            expect(mockSetPagination).toHaveBeenCalledWith({ page: 1, total: 1, limit: 100 });
         });
 
         expect(categoryButton).toHaveTextContent('Eletrônicos');
@@ -96,10 +106,10 @@ describe('Filters Component', () => {
         render(<Filters />);
 
         const sortButton = screen.getByLabelText('Selecione a organização dos produtos');
-        fireEvent.click(sortButton);
+        await userEvent.click(sortButton);
 
         const option = screen.getByRole('option', { name: 'Preço: Maior - menor' });
-        fireEvent.click(option);
+        await userEvent.click(option);
 
         await waitFor(() => {
             expect(mockSetProducts).toHaveBeenCalledWith([...mockProducts].sort((a, b) => b.price - a.price));
@@ -109,10 +119,13 @@ describe('Filters Component', () => {
     });
 
     it('does not render filters section if there are no products', () => {
-        (useProductsStore as jest.Mock).mockReturnValue({ products: [], setProducts: mockSetProducts });
+        (useProductsStore as jest.Mock).mockReturnValue({
+            products: [],
+            setProducts: mockSetProducts,
+            setPagination: mockSetPagination,
+        });
 
         render(<Filters />);
-
         expect(screen.queryByTestId('filters-section')).not.toBeInTheDocument();
     });
 

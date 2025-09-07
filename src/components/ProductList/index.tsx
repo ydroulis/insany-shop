@@ -1,9 +1,11 @@
 import React from 'react';
 
 import * as S from './styles';
-import { Products } from '@/types/Products';
+import { Products } from '../../types/Products';
 import ProductCard from '../ProductCard';
 import { useCategoriesStore } from '../../providers/categoriesStoreProvider';
+import Pagination from '../Pagination';
+import { useProductsStore } from '../../providers/productsStoreProvider';
 
 interface ProductListProps {
     products: Products
@@ -13,6 +15,7 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ products, pageId }) => {
     const { categories } = useCategoriesStore((state => state));
+    const { pagination } = useProductsStore((state => state));
 
     const hasProducts = products && products.length > 0;
     const category = categories.find(category => category.id === pageId)
@@ -39,6 +42,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, pageId }) => {
                             </li>
                         ))}
                     </S.List>
+                    {pagination && pagination.totalPages > 1 && <Pagination />}
                 </>
             ) : (
                 <p role="status" aria-live="polite">
