@@ -3,11 +3,15 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ProductInfo from "./";
 
-jest.mock("../../providers/cartStoreProvider", () => ({
-    useCartStore: jest.fn(() => ({
-        addProductToCart: jest.fn().mockResolvedValue(undefined), // retorna uma promise
-    })),
-}));
+jest.mock("../../providers/cartStoreProvider", () => {
+    return {
+        useCartStore: jest.fn(() => ({
+            addProductToCart: jest.fn().mockResolvedValue(undefined),
+            showFeedback: jest.fn(),
+            cart: { content: [] },
+        })),
+    };
+});
 
 describe("<ProductInfo />", () => {
     const defaultProps = {
@@ -16,7 +20,7 @@ describe("<ProductInfo />", () => {
         price: 1899.99,
         description:
             "Sofá confortável com assento retrátil e reclinável, revestimento em tecido suede e estrutura de madeira maciça.",
-        image: "",
+        image: "/fake-product.jpg",
     };
 
     it("should render product info with correct content", () => {
@@ -29,7 +33,6 @@ describe("<ProductInfo />", () => {
 
         const price = screen.getByLabelText("Preço do produto");
         expect(price).toBeInTheDocument();
-        expect(price).toHaveAttribute("aria-label", "Preço do produto");
 
         const description = screen.getByText(/Sofá confortável com assento retrátil/i);
         expect(description).toBeInTheDocument();

@@ -6,8 +6,9 @@ import { useRouter } from 'next/navigation';
 
 interface CartState {
     cart: {
-        content: { id: string }[]
+        content: { id: string }[];
     };
+    showFeedback: (value: boolean) => void;
 }
 
 jest.mock('../../providers/cartStoreProvider', () => ({
@@ -26,12 +27,16 @@ jest.mock('../SearchComponent', () => {
 
 describe('<Header />', () => {
     const pushMock = jest.fn();
+    const showFeedbackMock = jest.fn();
 
     beforeEach(() => {
         (useRouter as jest.Mock).mockReturnValue({ push: pushMock });
         (useCartStore as jest.Mock).mockImplementation(
             (selector: (state: CartState) => unknown) =>
-                selector({ cart: { content: [{ id: '1' }, { id: '2' }] } })
+                selector({
+                    cart: { content: [{ id: '1' }, { id: '2' }] },
+                    showFeedback: showFeedbackMock,
+                })
         );
     });
 
@@ -49,7 +54,6 @@ describe('<Header />', () => {
 
     it('should render search component', () => {
         render(<Header />);
-
         expect(screen.getByTestId('search-component')).toBeInTheDocument();
     });
 
@@ -70,6 +74,7 @@ describe('<Header />', () => {
 
         fireEvent.click(screen.getByLabelText(/ir para o carrinho de compras/i));
 
+        expect(showFeedbackMock).toHaveBeenCalledWith(false);
         expect(pushMock).toHaveBeenCalledTimes(1);
         expect(pushMock).toHaveBeenCalledWith('/cart');
     });

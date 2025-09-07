@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import CartFeedback from './';
 
-// Tipagem do mock do Container
 interface MockContainerProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     $color?: string;
@@ -10,7 +9,6 @@ interface MockContainerProps extends React.HTMLAttributes<HTMLDivElement> {
     'aria-live'?: 'off' | 'polite' | 'assertive';
 }
 
-// Mock do styled-component Container
 jest.mock('./styles', () => ({
     Container: ({ children, $color, $background, ...props }: MockContainerProps) => (
         <div

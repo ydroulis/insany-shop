@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useCategoriesStore } from '../../providers/categoriesStoreProvider';
 import { useRouter } from 'next/navigation';
 import CartFeedback from '../CartFeedback';
-import { useCartStore } from '@/providers/cartStoreProvider';
+import { useCartStore } from '../../providers/cartStoreProvider';
 
 interface MainProductProps {
     product: Product
