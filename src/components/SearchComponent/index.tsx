@@ -23,7 +23,6 @@ const SearchComponent: React.FC = () => {
 
         const fetchAllProducts = async () => {
             const res = await getProducts(1, 100);
-            console.log('log ~ fetchAllProducts ~ res:', res)
             setAllProducts(res.products);
         };
         fetchAllProducts();

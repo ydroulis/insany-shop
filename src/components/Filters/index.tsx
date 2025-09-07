@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import * as S from './styles';
 import Selector from '../Selector';
@@ -7,17 +7,18 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCategoriesStore } from '../../providers/categoriesStoreProvider';
 import { useProductsStore } from '../../providers/productsStoreProvider';
+import { getProducts } from '../../services/products';
 
 interface FiltersProps {
     pageId?: string
 }
 
 const optionsCategory = [
-    { value: 'eletronics', label: 'Eletrônicos' },
-    { value: 'clothing', label: 'Roupas e Calçados' },
-    { value: 'decoration', label: 'Casa e Decoração' },
-    { value: 'books', label: 'Livros' },
-    { value: 'sport', label: 'Esporte e Lazer' },
+    { value: 'eletronicos', label: 'Eletrônicos' },
+    { value: 'roupas', label: 'Roupas e Calçados' },
+    { value: 'casa', label: 'Casa e Decoração' },
+    { value: 'livros', label: 'Livros' },
+    { value: 'esportes', label: 'Esporte e Lazer' },
 ]
 
 const optionsSort = [
@@ -29,6 +30,21 @@ const optionsSort = [
 const Filters: React.FC<FiltersProps> = ({ pageId }) => {
     const [valueCategory, setValueCategory] = useState('Selecione a categoria');
     const [valueSort, setValueSort] = useState('Organizar por');
+
+    const { setProducts } = useProductsStore((state) => state);
+
+    useEffect(() => {
+        const categoryValueSelected = optionsCategory.find(option => option.label === valueCategory)?.value
+
+        if (valueCategory !== 'Selecione a categoria') {
+            const fetchCategoryProducts = async () => {
+                const res = await getProducts(1, 100, categoryValueSelected);
+                setProducts(res.products);
+            }
+            fetchCategoryProducts()
+        }
+
+    }, [setProducts, valueCategory])
 
     const { categories } = useCategoriesStore((state) => state);
     const { products } = useProductsStore((state) => state);
