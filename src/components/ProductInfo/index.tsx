@@ -20,7 +20,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
     image,
     description
 }) => {
-    const { addProductToCart } = useCartStore((state) => state);
+    const { addProductToCart, showFeedback } = useCartStore((state) => state);
 
     const formattedPrice = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
@@ -29,6 +29,11 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
 
     const handleAddProductToCart = async (product: Product) => {
         await addProductToCart(product, 1);
+
+        showFeedback(true);
+        setTimeout(() => {
+            showFeedback(false);
+        }, 200);
     };
 
     return (
