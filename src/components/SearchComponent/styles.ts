@@ -27,6 +27,17 @@ export const SearchInput = styled.input`
         color: #737380;
         font-family: 'Inter', sans-serif;
     }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+        display: none;
+    }
+
+    &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
 `
 
 export const SearchIcon = styled(CiSearch)`
@@ -47,3 +58,51 @@ export const SrOnly = styled.span`
     clip: rect(0, 0, 0, 0);
     border: 0;
 `
+
+export const Suggestions = styled.ul`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 4px 0;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 10;
+`;
+
+export const SuggestionItem = styled.li`
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background: #f5f5f5;
+  }
+`;
+
+export const SearchWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const ClearButton = styled.button`
+  position: absolute;
+  right: 36px; /* antes do ícone de busca */
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+
+  &:hover {
+    color: #000;
+  }
+`;
