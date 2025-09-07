@@ -23,6 +23,7 @@ const optionsCategory = [
 
 const optionsSort = [
     { value: 'newers', label: 'Novidades' },
+    { value: 'older', label: 'Mais Antigos' },
     { value: 'higher', label: 'Preço: Maior - menor' },
     { value: 'lower', label: 'Preço: Menor - maior' },
 ]
@@ -31,7 +32,11 @@ const Filters: React.FC<FiltersProps> = ({ pageId }) => {
     const [valueCategory, setValueCategory] = useState('Selecione a categoria');
     const [valueSort, setValueSort] = useState('Organizar por');
 
-    const { setProducts } = useProductsStore((state) => state);
+    const { categories } = useCategoriesStore((state) => state);
+    const { products, setProducts } = useProductsStore((state) => state);
+
+
+
 
     useEffect(() => {
         const categoryValueSelected = optionsCategory.find(option => option.label === valueCategory)?.value
@@ -46,8 +51,24 @@ const Filters: React.FC<FiltersProps> = ({ pageId }) => {
 
     }, [setProducts, valueCategory])
 
-    const { categories } = useCategoriesStore((state) => state);
-    const { products } = useProductsStore((state) => state);
+    useEffect(() => {
+        switch (valueSort) {
+            case 'Novidades':
+                setProducts(products.sort((a, b) => b.id - a.id));
+                break;
+            case 'Mais Antigos':
+                setProducts(products.sort((a, b) => a.id - b.id));
+                break;
+            case 'Preço: Maior - menor':
+                setProducts(products.sort((a, b) => b.price - a.price));
+                break;
+            case 'Preço: Menor - maior':
+                setProducts(products.sort((a, b) => a.price - b.price));
+                break;
+            default:
+                break;
+        }
+    }, [products, setProducts, valueSort])
 
     const pathname = usePathname()
     const isActive = pathname === `/category/${pageId}`
