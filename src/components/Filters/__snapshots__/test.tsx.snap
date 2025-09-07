@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Filters Component should match snapshot 1`] = `
+exports[`Filters Component matches snapshot 1`] = `
 <div>
   <section
     class="sc-bRKDuR hyYVIi"
@@ -131,6 +131,14 @@ exports[`Filters Component should match snapshot 1`] = `
           tabindex="0"
         >
           Novidades
+        </button>
+        <button
+          aria-selected="false"
+          class="sc-dTvVRJ irVMIK"
+          role="option"
+          tabindex="0"
+        >
+          Mais Antigos
         </button>
         <button
           aria-selected="false"
