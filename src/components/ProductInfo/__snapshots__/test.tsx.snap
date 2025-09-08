@@ -5,7 +5,7 @@ exports[`<ProductInfo /> should match snapshot 1`] = `
   <section
     aria-describedby="product-description"
     aria-labelledby="product-title"
-    class="sc-bRKDuR cXGvfD"
+    class="sc-bRKDuR gSxecp"
   >
     <div
       class="sc-hvigdm cSUguT"
@@ -23,12 +23,12 @@ exports[`<ProductInfo /> should match snapshot 1`] = `
       </h1>
       <p
         aria-label="Preço do produto"
-        class="sc-dTvVRJ jGDAGk"
+        class="sc-dTvVRJ cJcKdX"
       >
         R$ 1.899,99
       </p>
       <div
-        class="sc-jwTyAe dISfnV"
+        class="sc-jwTyAe cDycJE"
         id="product-description"
       >
         <p>

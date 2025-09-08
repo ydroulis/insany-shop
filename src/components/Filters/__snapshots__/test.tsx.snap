@@ -3,7 +3,7 @@
 exports[`Filters Component matches snapshot 1`] = `
 <div>
   <section
-    class="sc-bRKDuR hyYVIi"
+    class="sc-bRKDuR hwHiwV"
     data-testid="filters-section"
   >
     <div
@@ -46,7 +46,7 @@ exports[`Filters Component matches snapshot 1`] = `
       >
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >
@@ -54,7 +54,7 @@ exports[`Filters Component matches snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >
@@ -62,7 +62,7 @@ exports[`Filters Component matches snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >
@@ -70,7 +70,7 @@ exports[`Filters Component matches snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >
@@ -78,7 +78,7 @@ exports[`Filters Component matches snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >
@@ -126,7 +126,7 @@ exports[`Filters Component matches snapshot 1`] = `
       >
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >
@@ -134,7 +134,7 @@ exports[`Filters Component matches snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >
@@ -142,7 +142,7 @@ exports[`Filters Component matches snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >
@@ -150,7 +150,7 @@ exports[`Filters Component matches snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="sc-dTvVRJ irVMIK"
+          class="sc-dTvVRJ iayOJB"
           role="option"
           tabindex="0"
         >

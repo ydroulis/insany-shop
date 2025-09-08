@@ -23,6 +23,12 @@ export const SearchInput = styled.input`
 
     color: #737380;
 
+    font-size: 0.75rem;
+
+    @media (min-width: 768px) {
+        font-size: 0.875rem;
+    }
+
     &::placeholder {
         color: #737380;
         font-family: 'Inter', sans-serif;

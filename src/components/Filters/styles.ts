@@ -4,11 +4,13 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
     margin: 0 auto; 
-    max-width: 1120px; 
     display: flex; 
-    alignItems: center; 
+    align-Items: center; 
     justify-content: space-between; 
     margin-top: 2rem;
+
+       max-width: 704px;
+
 
     ul {
         display: flex;
@@ -34,5 +36,17 @@ export const Container = styled.section`
         &:hover {
             text-decoration: underline;
         }
+    }
+
+    @media (min-width: 768px) {
+       max-width: 704px;
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 928px;
+    }
+
+    @media (min-width: 1440px) {
+        max-width: 1120px;
     }
 `

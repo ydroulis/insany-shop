@@ -35,7 +35,7 @@ describe('<SearchComponent />', () => {
 
         const input = screen.getByRole('searchbox', { name: /campo de busca/i });
         expect(input).toBeInTheDocument();
-        expect(input).toHaveAttribute('placeholder', 'Procurando algo específico');
+        expect(input).toHaveAttribute('placeholder', 'Procurando algo específico?');
 
         const icon = screen.getByTestId('search-icon');
         expect(icon).toBeInTheDocument();

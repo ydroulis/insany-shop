@@ -22,9 +22,9 @@ exports[`<SearchComponent /> should match snapshot 1`] = `
     >
       <input
         aria-label="Campo de busca"
-        class="sc-hvigdm fFawhG"
+        class="sc-hvigdm jqpAwf"
         id="site-search"
-        placeholder="Procurando algo específico"
+        placeholder="Procurando algo específico?"
         type="search"
         value=""
       />

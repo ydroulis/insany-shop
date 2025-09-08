@@ -11,40 +11,72 @@ export const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0rem 10rem;
-
+  padding: 0rem 1rem;
+  
   font-family: 'Inter', sans-serif;
 
   position: fixed;
   top: 0;
 
   z-index: 1;
+
+  @media (min-width: 768px) {
+    padding: 0rem 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0rem 3rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0rem 10rem;
+  }
 `
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 1120px;
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    max-width: 704px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 928px;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1120px;
+  }
 `
 
 export const Logo = styled.h1`
-  font-size: 2.5rem;
+  font-size: 1rem;
   font-weight: 700;
 
   a {
     text-decoration: none;
     color: inherit;
   }
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+  }
 `
 
 export const Actions = styled.nav`
     display: flex;
     gap: 24px;
+
+    @media (max-width: 767px) {
+      width: 245px;
+      gap: 12px;
+    }
 `
 
 export const Notifications = styled.button`

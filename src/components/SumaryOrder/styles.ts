@@ -15,6 +15,18 @@ export const Container = styled.section`
     padding: 1.25rem 1.5rem 1.5rem 1.5rem;
 
     position: relative;
+
+    @media (min-width: 768px) {
+        min-width: 282px;
+    }
+
+    @media (min-width: 1024px) {
+
+    }
+
+    @media (min-width: 1440px) {
+        min-width: 352px;
+    }
 `
 
 export const Title = styled.h2`

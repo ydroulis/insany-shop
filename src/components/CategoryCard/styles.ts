@@ -5,13 +5,15 @@ import styled from 'styled-components'
 
 export const CardLink = styled(Link)`
     display: flex;
-    width: 208px;
     height: 100%;
     min-height: 116px;
     text-decoration: none;
     color: inherit;
 
     border: 1px solid #E0E0E0;
+
+    width: 150px;
+    padding: 0rem 1rem;
 
     border-radius: 12px;
     background-color: #fff;
@@ -30,6 +32,20 @@ export const CardLink = styled(Link)`
         border-radius: 12px;
         transform: scale(1.02);
     }
+
+    @media (min-width: 768px) {
+        width: 220px;
+        padding: 0rem 1rem;
+    }
+
+    @media (min-width: 1024px) {
+        width: 177px;
+        padding: 0rem 1rem;
+    }
+
+    @media (min-width: 1440px) {
+        width: 208px;
+    }
 `
 
 export const CardArticle = styled.article`
@@ -45,8 +61,10 @@ export const CardArticle = styled.article`
 
 export const Title = styled.h3`
     font-weight: 700;
+    text-align: center;
 `
 
 export const ProductCount = styled.p`
+    text-align: center;
 `
 

@@ -3,12 +3,16 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-    width: 448px;
-    color: #41414d;
+color: #41414d;
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+@media (min-width: 768px) {
+    width: 704px;
+    width: 448px;
+}
 `
 
 export const Details = styled.div`
@@ -30,19 +34,29 @@ export const Price = styled.p`
     font-size: 1.25rem;
     font-weight: 600;
     color: #46ab80;
-    margin-bottom: 6.25rem;
+    margin-bottom: 1rem;
+    
+    @media (min-width: 1440px) {
+        margin-bottom: 6.25rem;
+    }
 `
 
 export const Description = styled.div`
-p{
-    font-size: 1rem;
-    font-weight: 500;
-    color: #737380;
     margin-bottom: 1.25rem;
-    text-transform: uppercase;
-}
 
-span{
-    font-size: 0.875rem;
-}
+    p{
+        font-size: 1rem;
+        font-weight: 500;
+        color: #737380;
+        margin-bottom: 1.25rem;
+        text-transform: uppercase;
+    }
+
+    span{
+        font-size: 0.875rem;
+    }
+
+    @media (min-width: 1440px) {
+        margin-bottom: 0rem;
+    }
 `

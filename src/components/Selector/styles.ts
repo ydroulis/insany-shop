@@ -64,11 +64,15 @@ export const SelectorItem = styled.button`
 
     cursor: pointer;
 
-    height: 24px;
+    height: 40px;
     width: 100%;
 
     margin: 0rem;
 
     color: #737380;
     font-family: 'Inter', sans-serif;
+
+    @media (min-width: 768px) {
+        height: 24px;
+    }
 `

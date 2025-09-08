@@ -4,7 +4,7 @@ exports[`<SumaryOrder /> should match snapshot 1`] = `
 <div>
   <section
     aria-labelledby="summary-title"
-    class="sc-bRKDuR dKXnnv"
+    class="sc-bRKDuR cbuulU"
     role="region"
   >
     <h2

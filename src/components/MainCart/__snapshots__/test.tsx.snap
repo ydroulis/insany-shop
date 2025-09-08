@@ -3,12 +3,12 @@
 exports[`<MainCart /> should match snapshot 1`] = `
 <div>
   <main
-    class="sc-bRKDuR hrPDot"
+    class="sc-bRKDuR igzaSt"
     role="main"
   >
     <button
       aria-label="Voltar para a página anterior"
-      class="sc-hvigdm hjxKkl"
+      class="sc-hvigdm jSpvAU"
       data-testid="back-button"
     >
       <img

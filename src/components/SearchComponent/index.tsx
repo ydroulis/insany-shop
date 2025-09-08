@@ -86,7 +86,7 @@ const SearchComponent: React.FC = () => {
                     onChange={handleChange}
                     id="site-search"
                     type="search"
-                    placeholder="Procurando algo específico"
+                    placeholder="Procurando algo específico?"
                     aria-label="Campo de busca"
                 />
 

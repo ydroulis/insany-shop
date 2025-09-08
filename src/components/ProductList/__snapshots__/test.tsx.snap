@@ -4,16 +4,16 @@ exports[`<ProductList /> should match snapshot 1`] = `
 <div>
   <section
     aria-labelledby="product-list-title"
-    class="sc-bRKDuR knjsEQ"
+    class="sc-bRKDuR etiedR"
   >
-    <h1
-      class="sc-hvigdm dpWcbF"
+    <h2
+      class="sc-hvigdm jTLICk"
       id="product-list-title"
     >
       Todos os Produtos
-    </h1>
+    </h2>
     <ul
-      class="sc-ggWZvA eYZMRa"
+      class="sc-ggWZvA diZjfo"
       role="list"
     >
       <li
