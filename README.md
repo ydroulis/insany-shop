@@ -1,6 +1,6 @@
-# 🛍️ Insany Shop
+# 🛍️ InsanyShop
 
-**Insany Shop** is a modern **e-commerce project** built with **Next.js** and **TypeScript**.  
+**InsanyShop** is a modern **e-commerce project** built with **Next.js** and **TypeScript**.  
 It integrates an external API using **Axios**, manages global state with **Zustand**, is styled with **Styled Components**, and features icons from **React Icons**.  
 
 The project also includes **unit and integration tests** using **Jest** and **React Testing Library**, ensuring reliability and maintainability.
@@ -79,19 +79,7 @@ npm run lint
 
 The project also uses Prettier for consistent code formatting, along with Husky + lint-staged for pre-commit hooks.
 
-##📂 Tech Stack
+## 👨‍💻 Contributing
 
-- Framework: Next.js
-
-- Language: TypeScript
-
-- API Client: Axios
-
-- State Management: Zustand
-
-- Styling: Styled Components
-
-- Icons: React Icons
-
--Testing: Jest
-    + React Testing Library
+Contributions are welcome!
+Feel free to fork this repository, open issues, or submit pull requests.
