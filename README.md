@@ -27,6 +27,9 @@ Clone the repository and install dependencies:
 git clone https://github.com/ydroulis/insany-shop.git
 cd insany-shop
 npm install
+```
+
+---
 
 ## 🏃 Running the Project
 
@@ -34,41 +37,49 @@ Start the development server:
 
 ```bash
 npm run dev
+```
 
 Build for production:
 
 ```bash
 npm run build
-
+```
 
 Start the production server:
 
 ```bash
 npm run start
+```
+
+---
 
 ## 🧪 Testing
 
 Run all tests:
 
-``bash
+```bash
 npm run test
+```
 
 Run in watch mode:
 
 ```bash
 npm run test:watch
-
+```
 
 Generate coverage report:
 
 ```bash
 npm run test:coverage
-
+```
 
 Run in CI-friendly mode:
 
 ```bash
 npm run test:ci
+```
+
+---
 
 ## 🧹 Linting & Formatting
 
@@ -76,10 +87,15 @@ Check code with ESLint:
 
 ```bash
 npm run lint
+```
 
 The project also uses Prettier for consistent code formatting, along with Husky + lint-staged for pre-commit hooks.
+
+---
 
 ## 👨‍💻 Contributing
 
 Contributions are welcome!
 Feel free to fork this repository, open issues, or submit pull requests.
+
+---
