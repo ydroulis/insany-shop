@@ -33,10 +33,21 @@ jest.mock('../QuantitySelector', () => {
     return QuantitySelectorMock;
 });
 
+type MockCartProduct = {
+    id: number;
+    name: string;
+    items: number;
+};
+
+type MockCart = {
+    content: MockCartProduct[];
+};
+
 const mockCartStore = {
     removeProductFromCart: jest.fn(),
     changeItems: jest.fn(),
     showFeedback: jest.fn(),
+    cart: { content: [] } as MockCart, // 👈 garantindo que cart.content existe
 };
 
 jest.mock('../../providers/cartStoreProvider', () => ({
@@ -55,6 +66,7 @@ describe('<CartItem />', () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
+        mockCartStore.cart.content = []; // limpa carrinho antes de cada teste
     });
 
     it('should render properly all elements', () => {

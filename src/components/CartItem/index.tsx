@@ -15,8 +15,8 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = ({ name, description, price, image, id, stock }) => {
-    const { removeProductFromCart, changeItems, showFeedback } = useCartStore((state) => state);
-    const [value, setValue] = useState('1');
+    const { removeProductFromCart, changeItems, showFeedback, cart } = useCartStore((state) => state);
+    const [value, setValue] = useState(cart.content.find((p) => p.id === id)?.items?.toString() ?? '1');
     const [finalPrice, setFinalPrice] = useState(price);
 
     const options = Array.from({ length: Math.min(stock, 10) }, (_, i) => ({
