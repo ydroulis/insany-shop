@@ -14,7 +14,7 @@ exports[`<MainCart /> should match snapshot 1`] = `
       <img
         alt="Ícone voltar"
         height="24"
-        src="/back.png"
+        src="/back.svg"
         width="24"
       />
       Voltar

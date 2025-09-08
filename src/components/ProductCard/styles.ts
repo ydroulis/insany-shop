@@ -128,7 +128,7 @@ export const Rate = styled.div`
 `
 
 export const Action = styled.div`
-    width: 300px;
+    width: 305px;
 
     position: absolute;
 

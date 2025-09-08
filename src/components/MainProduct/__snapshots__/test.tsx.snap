@@ -19,8 +19,7 @@ exports[`<MainProduct /> should match snapshot 1`] = `
           decoding="async"
           height="24"
           loading="lazy"
-          src="/_next/image?url=%2Fback.png&w=48&q=75"
-          srcset="/_next/image?url=%2Fback.png&w=32&q=75 1x, /_next/image?url=%2Fback.png&w=48&q=75 2x"
+          src="/back.svg"
           style="color: transparent;"
           width="24"
         />

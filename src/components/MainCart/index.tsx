@@ -22,7 +22,7 @@ const MainCart: React.FC = () => {
             role="main"
         >
             <S.Back data-testid="back-button" onClick={handleBack} aria-label="Voltar para a página anterior">
-                <Image src="/back.png" alt="Ícone voltar" width={24} height={24} />
+                <Image src="/back.svg" alt="Ícone voltar" width={24} height={24} />
                 Voltar
             </S.Back>
             {cart.content.length > 0 ? (
