@@ -14,6 +14,8 @@ export const Container = styled.article`
 
     box-sizing: border-box;
 
+    padding-right: 1rem;
+
     @media (min-width: 768px) {
         width: 406px;
         gap: 16px;

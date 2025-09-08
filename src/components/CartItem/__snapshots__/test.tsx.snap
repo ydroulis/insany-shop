@@ -4,7 +4,7 @@ exports[`<CartItem /> should match snapshot 1`] = `
 <div>
   <article
     aria-label="Produto: Produto Teste"
-    class="sc-bRKDuR dWDUIA"
+    class="sc-bRKDuR kpXeVO"
     data-testid="cart-item"
   >
     <img

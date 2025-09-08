@@ -82,7 +82,7 @@ exports[`<ProductCard /> should match snapshot 1`] = `
       </div>
     </a>
     <div
-      class="sc-dYwGCk kGEtLF"
+      class="sc-dYwGCk cIOxdk"
     >
       <button
         aria-label="Adicionar Produto Teste ao carrinho"
