@@ -5,7 +5,7 @@ exports[`<ProductImage /> should match snapshot 1`] = `
   <img
     alt="Imagem do produto"
     aria-label="Imagem ilustrativa do produto Tênis Esportivo"
-    class="sc-bRKDuR ipYYMt"
+    class="sc-bRKDuR ckjJKp"
     data-nimg="1"
     decoding="async"
     height="580"

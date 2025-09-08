@@ -4,7 +4,7 @@ exports[`<MainHome /> should match snapshot 1`] = `
 <div>
   <main
     aria-label="Catálogo de produtos"
-    class="sc-bRKDuR lbXECt"
+    class="sc-bRKDuR DhuyO"
     role="main"
   >
     <div
@@ -17,17 +17,17 @@ exports[`<MainHome /> should match snapshot 1`] = `
     />
     <section
       aria-labelledby="categories-title"
-      class="sc-hvigdm cBLToQ"
+      class="sc-hvigdm dNZrIl"
       role="region"
     >
       <h2
-        class="sc-fhHczv iCxmzm"
+        class="sc-fhHczv jgCwth"
         id="categories-title"
       >
         Principais categorias
       </h2>
       <ul
-        class="sc-ggWZvA bKXArt"
+        class="sc-ggWZvA fwYOef"
         role="list"
       >
         <li
@@ -35,7 +35,7 @@ exports[`<MainHome /> should match snapshot 1`] = `
         >
           <a
             aria-label="Ver categoria Livros com 1 produto"
-            class="sc-dTvVRJ djcVQG"
+            class="sc-dTvVRJ gAeONW"
             href="/category/livros"
           >
             <article
@@ -43,13 +43,13 @@ exports[`<MainHome /> should match snapshot 1`] = `
               data-testid="category-card"
             >
               <h3
-                class="sc-hjsuWn deQKlM"
+                class="sc-hjsuWn fbyTZt"
               >
                 Livros
               </h3>
               <p
                 aria-hidden="true"
-                class="sc-jJLAfE dEWSat"
+                class="sc-jJLAfE cVuPSo"
               >
                 1 produto
               </p>
@@ -61,7 +61,7 @@ exports[`<MainHome /> should match snapshot 1`] = `
         >
           <a
             aria-label="Ver categoria Eletrônicos com 5 produtos"
-            class="sc-dTvVRJ djcVQG"
+            class="sc-dTvVRJ gAeONW"
             href="/category/eletronics"
           >
             <article
@@ -69,13 +69,13 @@ exports[`<MainHome /> should match snapshot 1`] = `
               data-testid="category-card"
             >
               <h3
-                class="sc-hjsuWn deQKlM"
+                class="sc-hjsuWn fbyTZt"
               >
                 Eletrônicos
               </h3>
               <p
                 aria-hidden="true"
-                class="sc-jJLAfE dEWSat"
+                class="sc-jJLAfE cVuPSo"
               >
                 5 produtos
               </p>

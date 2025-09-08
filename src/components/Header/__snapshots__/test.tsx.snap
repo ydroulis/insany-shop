@@ -3,15 +3,14 @@
 exports[`<Header /> should match snapshot 1`] = `
 <div>
   <header
-    class="sc-bRKDuR cMqdoT"
+    class="sc-bRKDuR wIQYc"
     role="banner"
   >
     <div
-      class="sc-hvigdm ctYeoP"
-      style="max-width: 1120px; width: 100%;"
+      class="sc-hvigdm gSOdKe"
     >
       <h1
-        class="sc-fhHczv MBVZm"
+        class="sc-fhHczv fAnEeW"
       >
         <a
           aria-label="Ir para a página inicial"
@@ -22,7 +21,7 @@ exports[`<Header /> should match snapshot 1`] = `
       </h1>
       <nav
         aria-label="Acões de navegação"
-        class="sc-ggWZvA gQMdoQ"
+        class="sc-ggWZvA dUeVHC"
         role="navigation"
       >
         <input

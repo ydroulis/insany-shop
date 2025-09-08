@@ -4,13 +4,13 @@ exports[`<MainCategory /> should match snapshot 1`] = `
 <div>
   <main
     aria-label="Catálogo de produtos 1"
-    class="sc-bRKDuR dRZDNv"
+    class="sc-bRKDuR cZPJck"
     role="main"
   >
     <section
       aria-describedby="product-list-description"
       aria-labelledby="product-list-title"
-      class="sc-hjsuWn kLMIfd"
+      class="sc-hjsuWn ufRUA"
     >
       <p
         aria-live="polite"

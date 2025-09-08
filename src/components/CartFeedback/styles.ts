@@ -17,8 +17,13 @@ export const Container = styled.div<{ $color: string; $background: string }>`
     color: ${({ $color }) => $color};
 
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 10px;
+    right: 10px;
 
     z-index: 999;
+
+    @media (min-width: 768px) {
+        bottom: 50px;
+        right: 50px;
+    }
 `

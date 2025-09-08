@@ -3,47 +3,51 @@
 exports[`<MainProduct /> should match snapshot 1`] = `
 <div>
   <main
-    class="sc-bRKDuR jUVPqi"
+    class="sc-bRKDuR jOarzP"
   >
-    <button
-      aria-label="Voltar para a página anterior"
-      class="sc-hvigdm jhQtkF"
-      data-testid="back-button"
+    <div
+      class="wrapper"
     >
-      <img
-        alt="Ícone voltar"
-        data-nimg="1"
-        decoding="async"
-        height="24"
-        loading="lazy"
-        src="/_next/image?url=%2Fback.png&w=48&q=75"
-        srcset="/_next/image?url=%2Fback.png&w=32&q=75 1x, /_next/image?url=%2Fback.png&w=48&q=75 2x"
-        style="color: transparent;"
-        width="24"
-      />
-      Voltar
-    </button>
-    <section
-      aria-labelledby="product-title"
-      class="sc-fhHczv floSdJ"
-      data-testid="body-product"
-    >
-      <img
-        alt="Sofá 3 Lugares Retrátil"
-        data-testid="product-image"
-        src="/fake-product.jpg"
-      />
-      <div
-        data-testid="product-info"
+      <button
+        aria-label="Voltar para a página anterior"
+        class="sc-hvigdm jhQtkF"
+        data-testid="back-button"
       >
-        <h1>
-          Sofá 3 Lugares Retrátil
-        </h1>
-        <p>
-          Sofá confortável com assento retrátil
-        </p>
-      </div>
-    </section>
+        <img
+          alt="Ícone voltar"
+          data-nimg="1"
+          decoding="async"
+          height="24"
+          loading="lazy"
+          src="/_next/image?url=%2Fback.png&w=48&q=75"
+          srcset="/_next/image?url=%2Fback.png&w=32&q=75 1x, /_next/image?url=%2Fback.png&w=48&q=75 2x"
+          style="color: transparent;"
+          width="24"
+        />
+        Voltar
+      </button>
+      <section
+        aria-labelledby="product-title"
+        class="sc-fhHczv iEsSjN"
+        data-testid="body-product"
+      >
+        <img
+          alt="Sofá 3 Lugares Retrátil"
+          data-testid="product-image"
+          src="/fake-product.jpg"
+        />
+        <div
+          data-testid="product-info"
+        >
+          <h1>
+            Sofá 3 Lugares Retrátil
+          </h1>
+          <p>
+            Sofá confortável com assento retrátil
+          </p>
+        </div>
+      </section>
+    </div>
   </main>
 </div>
 `;

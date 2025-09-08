@@ -4,12 +4,12 @@ exports[`<CartItem /> should match snapshot 1`] = `
 <div>
   <article
     aria-label="Produto: Produto Teste"
-    class="sc-bRKDuR hLvVdg"
+    class="sc-bRKDuR dWDUIA"
     data-testid="cart-item"
   >
     <img
       alt="Imagem do produto Produto Teste"
-      class="sc-hvigdm flWskD"
+      class="sc-hvigdm inoaOh"
       data-nimg="1"
       decoding="async"
       height="211"
@@ -20,11 +20,11 @@ exports[`<CartItem /> should match snapshot 1`] = `
       width="256"
     />
     <div
-      class="sc-fhHczv dtjZdJ"
+      class="sc-fhHczv ghihCw"
     >
       <button
         aria-label="Remover Produto Teste do carrinho"
-        class="sc-ggWZvA FHRrb"
+        class="sc-ggWZvA bIGkpw"
         type="button"
       >
         <svg
@@ -45,7 +45,7 @@ exports[`<CartItem /> should match snapshot 1`] = `
         </svg>
       </button>
       <h2
-        class="sc-dTvVRJ grTNHw"
+        class="sc-dTvVRJ fMtjRy"
       >
         Produto Teste
       </h2>
@@ -55,7 +55,7 @@ exports[`<CartItem /> should match snapshot 1`] = `
         Descrição do produto teste
       </p>
       <div
-        class="sc-hjsuWn kGyVvi"
+        class="sc-hjsuWn gIBGcH"
       >
         <div>
           <label

@@ -40,7 +40,7 @@ exports[`<Selector /> should match snapshot 1`] = `
     >
       <button
         aria-selected="false"
-        class="sc-ggWZvA hhbPao"
+        class="sc-ggWZvA dmfFWv"
         role="option"
         tabindex="0"
       >
@@ -48,7 +48,7 @@ exports[`<Selector /> should match snapshot 1`] = `
       </button>
       <button
         aria-selected="false"
-        class="sc-ggWZvA hhbPao"
+        class="sc-ggWZvA dmfFWv"
         role="option"
         tabindex="0"
       >

@@ -4,17 +4,17 @@ exports[`<CategoriesList /> should match snapshot with categories 1`] = `
 <div>
   <section
     aria-labelledby="categories-title"
-    class="sc-bRKDuR GtvKZ"
+    class="sc-bRKDuR dEfGro"
     role="region"
   >
     <h2
-      class="sc-hvigdm fbhocO"
+      class="sc-hvigdm kIeRid"
       id="categories-title"
     >
       Principais categorias
     </h2>
     <ul
-      class="sc-fhHczv hNLWKe"
+      class="sc-fhHczv jGsPbI"
       role="list"
     >
       <li
@@ -22,7 +22,7 @@ exports[`<CategoriesList /> should match snapshot with categories 1`] = `
       >
         <a
           aria-label="Ver categoria Eletrônicos com 5 produtos"
-          class="sc-ggWZvA edjxiA"
+          class="sc-ggWZvA bKvbMM"
           href="/category/1"
         >
           <article
@@ -30,13 +30,13 @@ exports[`<CategoriesList /> should match snapshot with categories 1`] = `
             data-testid="category-card"
           >
             <h3
-              class="sc-jwTyAe kuNBmR"
+              class="sc-jwTyAe dySjUU"
             >
               Eletrônicos
             </h3>
             <p
               aria-hidden="true"
-              class="sc-hjsuWn blXWuW"
+              class="sc-hjsuWn hipssv"
             >
               5 produtos
             </p>
@@ -48,7 +48,7 @@ exports[`<CategoriesList /> should match snapshot with categories 1`] = `
       >
         <a
           aria-label="Ver categoria Livros com 1 produto"
-          class="sc-ggWZvA edjxiA"
+          class="sc-ggWZvA bKvbMM"
           href="/category/2"
         >
           <article
@@ -56,13 +56,13 @@ exports[`<CategoriesList /> should match snapshot with categories 1`] = `
             data-testid="category-card"
           >
             <h3
-              class="sc-jwTyAe kuNBmR"
+              class="sc-jwTyAe dySjUU"
             >
               Livros
             </h3>
             <p
               aria-hidden="true"
-              class="sc-hjsuWn blXWuW"
+              class="sc-hjsuWn hipssv"
             >
               1 produto
             </p>
@@ -78,7 +78,7 @@ exports[`<CategoriesList /> should match snapshot without categories 1`] = `
 <div>
   <section
     aria-labelledby="categories-title"
-    class="sc-bRKDuR GtvKZ"
+    class="sc-bRKDuR dEfGro"
     role="region"
   />
 </div>

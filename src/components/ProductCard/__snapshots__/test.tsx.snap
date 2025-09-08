@@ -4,7 +4,7 @@ exports[`<ProductCard /> should match snapshot 1`] = `
 <div>
   <article
     aria-label="Ver detalhes do produto Produto Teste"
-    class="sc-bRKDuR dNzCfW"
+    class="sc-bRKDuR hwSWuL"
   >
     <a
       class="sc-hvigdm VPYOi"
@@ -12,7 +12,7 @@ exports[`<ProductCard /> should match snapshot 1`] = `
     >
       <img
         alt="Imagem do produto Produto Teste"
-        class="sc-fhHczv jlpayb"
+        class="sc-fhHczv dTZki"
         data-nimg="1"
         decoding="async"
         height="200"
@@ -82,7 +82,7 @@ exports[`<ProductCard /> should match snapshot 1`] = `
       </div>
     </a>
     <div
-      class="sc-dYwGCk gtgtHv"
+      class="sc-dYwGCk kGEtLF"
     >
       <button
         aria-label="Adicionar Produto Teste ao carrinho"

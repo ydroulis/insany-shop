@@ -19,7 +19,7 @@ const Header: React.FC = () => {
 
     return (
         <S.Wrapper role="banner">
-            <S.Container style={{ maxWidth: "1120px", width: "100%" }}>
+            <S.Container>
                 <S.Logo>
                     <Link href="/" aria-label='Ir para a página inicial'>InsanyShop</Link>
                 </S.Logo>

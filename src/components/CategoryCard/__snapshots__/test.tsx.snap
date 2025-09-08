@@ -4,7 +4,7 @@ exports[`<CategoryCard /> should match snapshot 1`] = `
 <div>
   <a
     aria-label="Ver categoria Eletrônicos com 5 produtos"
-    class="sc-bRKDuR hqlWNC"
+    class="sc-bRKDuR gXXBKm"
     href="/category/eletronicos"
   >
     <article
@@ -12,13 +12,13 @@ exports[`<CategoryCard /> should match snapshot 1`] = `
       data-testid="category-card"
     >
       <h3
-        class="sc-fhHczv kQgZIE"
+        class="sc-fhHczv dxdmTh"
       >
         Eletrônicos
       </h3>
       <p
         aria-hidden="true"
-        class="sc-ggWZvA hvwsfd"
+        class="sc-ggWZvA kbidmA"
       >
         5 produtos
       </p>
